@@ -1,0 +1,7 @@
+<!--pages/home/home.wxml-->
+<view class="main">
+  <text class="title">Hello World</text>
+  <view></view>
+  <button bindtap="handleClick" type="plain" size="mini">Click</button>
+</view>
+

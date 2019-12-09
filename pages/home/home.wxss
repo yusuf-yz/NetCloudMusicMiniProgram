@@ -1,0 +1,9 @@
+/* pages/home/home.wxss */
+.main {
+  text-align: center;
+}
+.title {
+  color: rgb(245, 160, 29);
+  font-family: 'Source Han Sans CN';
+  font-weight: 500;
+}
