@@ -1,7 +1,17 @@
-<!--pages/home/home.wxml-->
-<view class="main">
-  <text class="title">Hello World</text>
-  <view></view>
-  <button bindtap="handleClick" type="plain" size="mini">Click</button>
-</view>
+<!-- tab-control -->
+<w-tab-control titles="{{titles}}"
+               bind:tabClick="handletabClick"
+               bind:search="handleSearch"
+/>
 
+<!-- 轮播图 -->
+<w-swiper list="{{banners}}"/>
+
+<!-- 类别 -->
+<w-category list="{{categorys}}"/>
+
+<!-- 推荐歌单 -->
+<w-recommend list="{{recommends}}"/>
+
+<!-- 热门电台 -->
+<w-hotradio list="{{hotradios}}"/>

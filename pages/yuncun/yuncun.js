@@ -1,4 +1,4 @@
-// pages/about/about.js
+// pages/yuncun/yuncun.js
 Page({
 
   /**

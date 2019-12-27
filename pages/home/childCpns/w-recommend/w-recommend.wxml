@@ -1,0 +1,13 @@
+<!--pages/home/childCpns/w-recommend/w-recommend.wxml-->
+<view class="recommend">
+  <view class="top">
+    <view class="title">推荐歌单</view>
+    <view class="btn"><button size="mini">歌单广场</button></view>
+  </view>
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="recommend-item">
+      <image src="{{item.picUrl}}" mode="widthFix"/>
+      <view class="name">{{item.name}}</view>
+    </view>
+  </block>
+</view>

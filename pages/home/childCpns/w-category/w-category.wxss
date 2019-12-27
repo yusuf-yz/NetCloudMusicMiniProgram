@@ -1,0 +1,26 @@
+/* pages/home/childCpns/w-category/w-category.wxss */
+.category {
+  display: flex;
+  padding-bottom: 40rpx;
+  border-bottom: 2rpx solid #e4dada;
+}
+
+.category-item {
+  flex: 1;
+  text-align: center;
+}
+
+.category-item image {
+  width: 70rpx;
+  height: 70rpx;
+  border: 1px solid #ff5777;
+  background: #ff5777;
+  border-radius: 50%;
+  padding: 24rpx;
+}
+
+.category-item view {
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  color: #333333;
+}

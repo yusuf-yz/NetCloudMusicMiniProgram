@@ -1,0 +1,42 @@
+<!--pages/search/childCpns/w-index/w-index.wxml-->
+<view class="search">
+  <view class="input">
+    <image class="edit" src="/assets/image/search/input.png" mode="widthFix"/>
+    <input type="text" value="{{inputValue}}" bindconfirm="handleConfirm" placeholder="{{inputPlace}}"/>
+    <image class="sea" src="/assets/image/search/search.png" mode="widthFix"/>
+  </view>
+  <view class="histoty">
+    <view class="top">
+      <view class="title">历史记录</view>
+      <view class="delete"><image src="/assets/image/search/delete.png" mode="widthFix"/></view>
+    </view>
+    <view  class="histoty-item">
+      <block wx:for="{{histoty}}" wx:key="index">
+        <view><text>{{item}} </text></view>
+      </block>
+    </view>
+  </view>
+  <view class="hot" wx:if="{{showHot}}">
+    <view class="title">热搜榜</view>
+    <block wx:for="{{list}}" wx:key="index">
+      <view class="hot-item">
+        <view class="{{ (index === 0 || index === 1 || index === 2) ? 'top-three' : 'index'}}">{{index + 1}}</view>
+        <view class="song">
+          <view class="name">{{item.searchWord}}</view>
+          <view class="content">{{item.content}}</view>
+        </view>
+        <view class="play-count">{{item.score}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="result" wx:if="{{showResult}}">
+    <view class="title">单曲</view>
+    <block wx:for="result" wx:key="index">
+      <view class="result-item">
+        <view class="name">{{item.name}}</view>
+        <view class="play"><image src="/assets/image/search/play.png" mode="widthFix"/></view>
+        <view class="select"><image src="/assets/image/search/list.png" mode="widthFix"/></view>
+      </view>
+    </block>
+  </view>
+</view>

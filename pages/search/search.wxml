@@ -1,0 +1,8 @@
+<!--pages/search/search.wxml-->
+<!-- 主页 -->
+<w-index list="{{hots}}"
+         inputPlace="{{inputPlace}}"
+         histoty="{{histoty}}"
+         bind:inputConfirm="handleInputConfirm"
+         result="{{result}}"
+         />

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "w-index": "./childCpns/w-index/w-index"
+  }
+}

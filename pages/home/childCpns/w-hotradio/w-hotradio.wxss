@@ -1,0 +1,47 @@
+/* pages/home/childCpns/w-hotradio/w-hotradio.wxss */
+.hotradio {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  padding: 30rpx;
+}
+.hotradio-item {
+  flex: 1;
+  padding: 20rpx 8rpx;
+}
+.hotradio-item image {
+  width: 180rpx;
+  border-radius: 8rpx;
+}
+.hotradio-item .name {
+  font-size: 24rpx;
+  width: 180rpx;
+  text-align: left;
+  margin: 0 auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.hotradio .top {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.hotradio .top .title {
+  font-size: 40rpx;
+  font-weight: 700;
+  line-height: 68rpx;
+  color: #000000;
+}
+
+.hotradio .top .btn {
+  position: relative;
+  top: 6rpx;
+}
+
+.hotradio .top button {
+  font-size: 24rpx;
+  color: #555555;
+}
