@@ -1,0 +1,19 @@
+<!--pages/profile/login/login.wxml-->
+<view class="login">
+  <view class="userName">
+    <image src="/assets/image/profile/ic_username.png" mode="widthFix"/>
+    <input value="{{userName}}" type="number" maxlength="11" bindinput="handleUNameInput" placeholder="请输入手机号" placeholder-class="placeholder"/>
+  </view>
+  <view class="password">
+    <image src="/assets/image/profile/password.png" mode="widthFix"/>
+    <input password="{{true}}" value="{{password}}" type="number" maxlength="20" bindinput="handlePWDInput" placeholder="请输入密码" placeholder-class="placeholder"/>
+  </view>
+  <!-- <view class="verify">
+    <image src="/assets/image/profile/verify_code.png" mode="widthFix"/>
+    <input type="number" maxlength="4" value="{{code}}" bindinput="handleVCodeInput" placeholder="请输入验证码" placeholder-class="placeholder"/>
+    <button size="mini" bind:tap="handleGetCode" disabled="{{disabled}}">{{getCode}}</button>
+  </view> -->
+  <view class="confirmBtn">
+    <button size="mini" bind:tap="handleConfirm">登录</button>
+  </view>
+</view>

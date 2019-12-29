@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "w-login": "./childCpns/w-login/w-login"
+  },
+  "navigationBarTitleText": "我的信息"
 }

@@ -1,0 +1,48 @@
+/* pages/profile/login/login.wxss */
+.login {
+  text-align: center;
+  margin: 0 auto;
+  min-height: 900rpx;
+  padding-top: 100rpx;
+  background: url("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3168197025,921443857&fm=26&gp=0.jpg") no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size:100% 100%;
+}
+
+.login .userName, .password, .verify {
+  margin-bottom: 20rpx;
+}
+
+.login .verify input {
+  width: 26%;
+  margin-right: 14rpx;
+}
+
+.login .verify button {
+  width: 140rpx;
+  font-size: 24rpx;
+  line-height: 2;
+  padding: 0;
+}
+
+.login image {
+  width: 48rpx;
+  margin-right: 16rpx;
+}
+
+.login input {
+  display: inline-block;
+  border: 1px solid #ffffff;
+  text-align: left;
+  color: #ffffff;
+}
+
+.login .placeholder {
+  color: #ffffff;
+  font-size: 28rpx;
+  padding: 0 10rpx;
+}
+
+.login .confirmBtn button {
+  width: 20%;
+}
