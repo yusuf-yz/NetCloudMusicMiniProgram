@@ -1,0 +1,9 @@
+<!--pages/profile/childCpns/w-list/w-list.wxml-->
+<view class="list">
+    <block wx:for="{{list}}" wx:key="index">
+      <view class="list-item" data-index="{{index}}" bind:tap="itemClick">
+        <image src="{{item.image}}" mode="widthFix"/>
+        <view>{{item.content}}</view>
+      </view>
+    </block>
+  </view>

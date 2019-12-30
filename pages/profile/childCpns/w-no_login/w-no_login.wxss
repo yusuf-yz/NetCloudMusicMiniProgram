@@ -1,0 +1,19 @@
+/* pages/profile/childCpns/w-no_login/w-no_login.wxss */
+.no_login {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 32rpx;
+  color: #ffffff;
+  background-color: #ff5777;
+}
+
+.no_login .content {
+  padding-top: 60rpx;
+  margin-bottom: 20rpx;
+}
+
+.no_login button {
+  width: 35%;
+  border-radius: 20rpx;
+  margin: 40rpx 0;
+}

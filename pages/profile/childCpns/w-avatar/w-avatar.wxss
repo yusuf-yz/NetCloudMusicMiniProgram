@@ -1,0 +1,17 @@
+/* pages/profile/childCpns/w-avatar/w-avatar.wxss */
+.avatar {
+  margin-top: 40rpx;
+  text-align: center;
+}
+
+.avatar image {
+  width: 160rpx;
+  border: 1px solid #9e9e9e;
+  border-radius: 50%;
+}
+
+.avatar text {
+  position: relative;
+  bottom: 60rpx;
+  margin-left: 40rpx;
+}

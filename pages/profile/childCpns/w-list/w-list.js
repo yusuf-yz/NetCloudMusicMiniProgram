@@ -1,4 +1,4 @@
-// pages/home/childCpns/w-category/w-category.js
+// pages/profile/childCpns/w-list/w-list.js
 Component({
   /**
    * 组件的属性列表
@@ -21,11 +21,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    itemClick: function(e) {
+    itemClick: function (e) {
       const index = e.currentTarget.dataset.index
       const data = {index: index}
-
-      this.triggerEvent('categoryClick', data)
+      this.triggerEvent('listClick', data)
     }
   }
 })

@@ -76,6 +76,20 @@
 					"id": -1,
 					"name": "我的页面",
 					"pathName": "pages/profile/profile",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/profile/profile",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/home/home",
 					"scene": null
 				}
 			]

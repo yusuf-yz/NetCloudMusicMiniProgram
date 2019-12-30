@@ -1,6 +1,10 @@
 {
   "usingComponents": {
-    "w-login": "./childCpns/w-login/w-login"
+    "w-login": "./childCpns/w-login/w-login",
+    "w-list": "./childCpns/w-list/w-list",
+    "w-menu": "./childCpns/w-menu/w-menu",
+    "w-avatar": "./childCpns/w-avatar/w-avatar",
+    "w-no_login": "./childCpns/w-no_login/w-no_login"
   },
   "navigationBarTitleText": "我的信息"
 }

@@ -6,7 +6,7 @@
   </view>
   <view class="password">
     <image src="/assets/image/profile/password.png" mode="widthFix"/>
-    <input password="{{true}}" value="{{password}}" type="number" maxlength="20" bindinput="handlePWDInput" placeholder="请输入密码" placeholder-class="placeholder"/>
+    <input password="{{true}}" value="{{password}}" type="text" maxlength="20" bindinput="handlePWDInput" currentTarget="handleConfirm" placeholder="请输入密码" placeholder-class="placeholder"/>
   </view>
   <!-- <view class="verify">
     <image src="/assets/image/profile/verify_code.png" mode="widthFix"/>

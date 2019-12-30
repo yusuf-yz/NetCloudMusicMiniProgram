@@ -2,6 +2,11 @@
 import { getBanner } from '../../service/home.js'
 import { getRecommend } from '../../service/home.js'
 import { getHotRadio } from '../../service/home.js'
+import { getDayRecommend } from '../../service/home.js'
+import { getPlayList } from '../../service/home.js'
+import { getTop } from '../../service/home.js'
+import { getRadioTop } from '../../service/home.js'
+
 // 注册一个页面
 Page({
 
@@ -32,13 +37,16 @@ Page({
     // 2.请求推荐歌单
     this._getRecommend(6)
 
-    // 3.请求上架新碟
+    // 3.请求热门电台
     this._getHotRadio(3)
   },
 
   // -------------- 网络请求函数 ---------------
-  // 获取banners
-  _getBanner(type) {
+
+  /**
+   * 获取轮播图
+   */
+  _getBanner: function(type) {
     getBanner(type).then(res => {
       if (res.data.code === 200) {
         const banners = res.data.banners
@@ -50,8 +58,59 @@ Page({
     })
   },
 
-  // 获取推荐歌单
-  _getRecommend(limit) {
+  /**
+   * 每日推荐
+   */
+  _getDayRecommend: function() {
+    getDayRecommend().then(res => {
+      if (res.data.code === 200) {
+        console.log(res)
+      } else {
+        wx.showToast({
+          title: '请先登录',
+          image: '/assets/image/profile/error.png'
+        })
+      }
+    })
+  },
+
+  /**
+   * 歌单
+   */
+  _getPlayList: function() {
+    getPlayList().then(res => {
+      if (res.data.code === 200) {
+        console.log(res)
+      }
+    })
+  },
+
+  /**
+   * 排行榜
+   */
+  _getTop: function(idx) {
+    getTop(idx).then(res => {
+      if (res.data.code === 200) {
+        console.log(res)
+      }
+    })
+  },
+
+  /**
+   * 电台
+   */
+  _getRadioTop: function(limit, offset) {
+    getRadioTop(limit, offset).then(res => {
+      if (res.data.code === 200) {
+        console.log(res)
+      }
+    })
+  },
+
+  /**
+   * 获取推荐歌单
+   */
+  _getRecommend: function(limit) {
     getRecommend(limit).then(res => {
       if (res.data.code === 200) {
         const recommends = res.data.result
@@ -63,8 +122,10 @@ Page({
     })
   },
 
-  // 获取热门电台
-  _getHotRadio(limit) {
+  /**
+   * 获取热门电台
+   */
+  _getHotRadio: function(limit) {
     getHotRadio(limit).then(res => {
       if (res.data.code === 200) {
         const hotradios = res.data.djRadios
@@ -77,9 +138,37 @@ Page({
   },
 
   // -------------- 事件监听函数 ---------------
-  handletabClick: function(e) {
+
+  /**
+   * 轮播图
+   */
+  // handletabClick: function(data) {
     
-    const index = e.detail.index
+  //   const index = data.detail.index
+  //   console.log(index)
+  // },
+
+  /**
+   * 分类
+   */
+  handleCategoryClick: function(data) {
+    const index = data.detail.index
     console.log(index)
+    switch (index) {
+      case 0:
+        this._getDayRecommend()
+        break
+      case 1:
+        this._getPlayList()
+        break
+      case 2:
+        this._getTop(0)
+        break
+      case 3:
+        this._getRadioTop(30, 0)
+        break
+      default:
+        break
+    }
   }
 })

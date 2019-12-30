@@ -1,0 +1,9 @@
+<!--pages/profile/childCpns/w-menu/w-menu.wxml-->
+<view class="menu">
+    <block wx:for="{{menu}}" wx:key="index">
+      <view class="menu-item" bind:tap="itemClick" data-index="{{index}}">
+        <image src="{{item.icon}}" mode="widthFix"/>
+        <button size="mini" plain="{{true}}">{{item.content}}</button>
+      </view>
+    </block>
+  </view>

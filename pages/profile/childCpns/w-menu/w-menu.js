@@ -1,10 +1,10 @@
-// pages/home/childCpns/w-category/w-category.js
+// pages/profile/childCpns/w-menu/w-menu.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    list: {
+    menu: {
       type: Array,
       value: []
     }
@@ -24,8 +24,7 @@ Component({
     itemClick: function(e) {
       const index = e.currentTarget.dataset.index
       const data = {index: index}
-
-      this.triggerEvent('categoryClick', data)
+      this.triggerEvent('menuClick', data)
     }
   }
 })

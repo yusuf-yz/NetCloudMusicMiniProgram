@@ -1,0 +1,5 @@
+<!--pages/profile/childCpns/w-avatar/w-avatar.wxml-->
+<view class="avatar">
+    <image src="{{avatar === '' ? '/assets/image/profile/ic_username.png' : avatar}}" mode="widthFix"/>
+    <text>用户名：{{userName === '' ? '请登录' : userName}}</text>
+  </view>

@@ -3,6 +3,7 @@ import { getVerifyCode } from "../../../../service/profile.js"
 import { verifyCode } from "../../../../service/profile.js"
 import { loginByPhone } from "../../../../service/profile.js"
 import { getLoginStatus } from "../../../../service/profile.js"
+const app = getApp()
 
 Component({
   /**
@@ -105,8 +106,16 @@ Component({
           let nickname = res.data.profile.nickname
           let avatarUrl = res.data.profile.avatarUrl
           let backgroundUrl = res.data.profile.backgroundUrl
+          let uid = res.data.profile.userId
+          let token = res.data.token
 
-          let data = { nickname: nickname, avatarUrl: avatarUrl, backgroundUrl: backgroundUrl }
+          app.globalData.token = token
+
+          console.log(app.globalData)
+          // 存储token
+          // wx.setStorageSync(app.globalData.token, token)
+
+          let data = { nickname: nickname, avatarUrl: avatarUrl, backgroundUrl: backgroundUrl, uid: uid }
           this.triggerEvent('comfirmLogin', data)
         }
       })

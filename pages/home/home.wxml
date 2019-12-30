@@ -1,14 +1,14 @@
 <!-- tab-control -->
-<w-tab-control titles="{{titles}}"
+<!-- <w-tab-control titles="{{titles}}"
                bind:tabClick="handletabClick"
                bind:search="handleSearch"
-/>
+/> -->
 
 <!-- 轮播图 -->
 <w-swiper list="{{banners}}"/>
 
 <!-- 类别 -->
-<w-category list="{{categorys}}"/>
+<w-category list="{{categorys}}" bind:categoryClick="handleCategoryClick"/>
 
 <!-- 推荐歌单 -->
 <w-recommend list="{{recommends}}"/>

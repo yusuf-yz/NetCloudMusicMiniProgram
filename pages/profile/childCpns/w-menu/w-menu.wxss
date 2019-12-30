@@ -1,0 +1,19 @@
+/* pages/profile/childCpns/w-menu/w-menu.wxss */
+.menu-item {
+  padding: 16rpx 0;
+  padding-left: 40rpx;
+  height: 80rpx;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.menu-item image {
+  width: 48rpx;
+  position: relative;
+  bottom: 16rpx;
+}
+
+.menu-item button {
+  border: 0;
+  line-height: 80rpx;
+  color: #333333;
+}

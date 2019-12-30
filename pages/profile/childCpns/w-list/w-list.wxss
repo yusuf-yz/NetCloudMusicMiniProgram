@@ -1,0 +1,15 @@
+/* pages/profile/childCpns/w-list/w-list.wxss */
+.list {
+  display: flex;
+  border-bottom: 24rpx solid #eeeeee;
+}
+
+.list-item {
+  flex: 1;
+  padding: 20rpx 0;
+  text-align: center;
+}
+
+.list-item image {
+  width: 60rpx;
+}
