@@ -90,6 +90,13 @@
 					"id": -1,
 					"name": "首页",
 					"pathName": "pages/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
 					"scene": null
 				}
 			]

@@ -1,8 +1,20 @@
 <!--pages/search/search.wxml-->
-<!-- 主页 -->
-<w-index list="{{hots}}"
-         inputPlace="{{inputPlace}}"
-         histoty="{{histoty}}"
-         bind:inputConfirm="handleInputConfirm"
-         result="{{result}}"
-         />
+
+<!-- 搜索页面 -->
+<view class="search-main" wx:if="{{showSearch}}">
+  <!-- 搜索框 -->
+  <w-sinput inputPlace="{{inputPlace}}" bind:goBack="handleGoBack" bind:inputConfirm="handleInputConfirm"/>
+
+  <!-- 历史记录 -->
+  <w-history histoty="{{histoty}}"/>
+
+  <!-- 热搜榜 -->
+  <w-shot list="{{hots}}" bind:hSongItemClick="handleHSongItemClick" wx:if="{{showHot}}"/>
+
+  <!-- 搜索结果 -->
+  <w-sresult result="{{result}}" bind:getMusicIfo="handleGetMusicIfo" wx:if="{{showResult}}"/>
+</view>
+
+<!-- 播放界面 -->
+<w-play wx:if="{{showPlay}}" musicIfo="{{musicIfo}}"/>
+

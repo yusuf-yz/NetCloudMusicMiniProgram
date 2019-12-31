@@ -1,0 +1,26 @@
+<!--components/w-play/w-play.wxml-->
+<view class="audio">
+  <view class="top">
+    <image class="back" src="/assets/image/search/back.png" bind:tap="handleBack" mode="widthFix"/>
+    <view class="song-ifo">
+      <view class="song-name">{{musicIfo.name}}</view>
+      <view class="song-author">{{musicIfo.author}}</view>
+    </view>
+  </view>
+  <view class="middle">
+    <image src="{{musicIfo.imageUrl}}" mode="widthFix"/>
+  </view>
+  <view class="bottom">
+    <view class="slider">
+      <!-- <slider></slider> -->
+      <audio id="myaudio" src="{{musicIfo.musicUrl}}"></audio>
+    </view>
+    <view class="controls">
+      <block wx:for="{{controls}}" wx:key="index">
+        <view class="controls-item" data-index="index" bind:tap="itemClick">
+          <image src="{{item.icon}}" mode="widthFix"/>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

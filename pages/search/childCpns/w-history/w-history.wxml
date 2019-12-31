@@ -1,0 +1,12 @@
+<!--pages/search/childCpns/w-history/w-history.wxml-->
+<view class="histoty">
+  <view class="top">
+    <view class="title">历史记录</view>
+    <view class="delete"><image src="/assets/image/search/delete.png" mode="widthFix"/></view>
+  </view>
+  <view  class="histoty-item">
+    <block wx:for="{{histoty}}" wx:key="index">
+      <view><text>{{item}} </text></view>
+    </block>
+  </view>
+</view>

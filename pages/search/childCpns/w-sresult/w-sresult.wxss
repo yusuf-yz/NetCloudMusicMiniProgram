@@ -1,0 +1,41 @@
+/* pages/search/childCpns/w-sresult/w-sresult.wxss */
+
+.result {
+  margin-top: 60rpx;
+  padding: 0 40rpx;
+}
+
+.title {
+  padding: 20rpx 0;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #000000;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.result-item .name {
+  flex: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #000000;
+  font-family: KaiTi;
+}
+
+.result-item image {
+  width: 36rpx;
+}
+
+.result-item .play, .select {
+  height: 36rpx;
+}
+
+.result-item .play {
+  padding: 0 30rpx;
+}
+

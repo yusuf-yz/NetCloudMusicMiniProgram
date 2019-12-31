@@ -1,0 +1,14 @@
+<!--pages/search/childCpns/w-shot/w-shot.wxml-->
+<view class="hot">
+  <view class="title">热搜榜</view>
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="hot-item" bind:tap="itemClick" data-sname="{{item.searchWord}}">
+      <view class="{{ (index === 0 || index === 1 || index === 2) ? 'top-three' : 'index'}}">{{index + 1}}</view>
+      <view class="song">
+        <view class="name">{{item.searchWord}}</view>
+        <view class="content">{{item.content}}</view>
+      </view>
+      <view class="play-count">{{item.score}}</view>
+    </view>
+  </block>
+</view>

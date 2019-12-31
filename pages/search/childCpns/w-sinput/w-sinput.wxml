@@ -1,0 +1,6 @@
+<!--pages/search/childCpns/w-sinput/w-sinput.wxml-->
+<view class="s-input">
+  <image class="back" src="/assets/image/search/back.png" bind:tap="handleBack" mode="widthFix"/>
+  <input type="text" value="{{inputValue}}" bindinput="handleInput" bindconfirm="handleConfirm" placeholder="{{inputPlace}}"/>
+  <image class="sea" bind:tap="handleConfirm" src="/assets/image/search/search.png" mode="widthFix"/>
+</view>

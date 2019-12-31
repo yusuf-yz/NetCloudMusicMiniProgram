@@ -1,0 +1,11 @@
+<!--pages/search/childCpns/w-sresult/w-sresult.wxml-->
+<view class="result">
+  <view class="title">单曲</view>
+  <block wx:for="{{result}}" wx:key="index">
+    <view class="result-item">
+      <view class="name" data-id="{{item.id}}" bind:tap="playMusic">{{item.name}}</view>
+      <view class="play"><image data-id="{{item.id}}" bind:tap="playMusic" src="/assets/image/search/play.png" mode="widthFix"/></view>
+      <view class="select"><image src="/assets/image/search/list.png" mode="widthFix"/></view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,27 @@
+/* pages/search/childCpns/w-sinput/w-sinput.wxss */
+
+.s-input {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  padding-left: 60rpx; 
+}
+
+.s-input .back {
+  width: 60rpx;
+  position: relative;
+  top: 2rpx;
+}
+
+.s-input .sea {
+  width: 50rpx;
+}
+
+.s-input input {
+  width: 75%;
+  font-size: 36rpx;
+  padding-left: 6rpx;
+  padding-bottom: 6rpx;
+  border-bottom: 1px solid #9e9e9e;
+  margin: 0 20rpx;
+}

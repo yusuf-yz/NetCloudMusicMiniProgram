@@ -1,5 +1,9 @@
 {
   "usingComponents": {
-    "w-index": "./childCpns/w-index/w-index"
+    "w-play": "/components/w-play/w-play",
+    "w-sinput": "./childCpns/w-sinput/w-sinput",
+    "w-history": "./childCpns/w-history/w-history",
+    "w-shot": "./childCpns/w-shot/w-shot",
+    "w-sresult": "./childCpns/w-sresult/w-sresult"
   }
 }
