@@ -1,24 +1,39 @@
 <!--components/w-play/w-play.wxml-->
 <view class="audio">
   <view class="top">
-    <image class="back" src="/assets/image/search/back.png" bind:tap="handleBack" mode="widthFix"/>
+    <image class="back" src="/assets/image/play/back.png" bind:tap="handleBack" mode="widthFix"/>
     <view class="song-ifo">
       <view class="song-name">{{musicIfo.name}}</view>
       <view class="song-author">{{musicIfo.author}}</view>
     </view>
   </view>
   <view class="middle">
-    <image src="{{musicIfo.imageUrl}}" mode="widthFix"/>
+    <image class="{{isPlay ? 'play' : 'pause'}}" src="{{musicIfo.imageUrl}}" mode="widthFix"/>
   </view>
   <view class="bottom">
     <view class="slider">
-      <!-- <slider></slider> -->
-      <audio id="myaudio" src="{{musicIfo.musicUrl}}"></audio>
+      <view class="cur-time">{{startTime}}</view>
+      <slider activeColor="#eeeeee" block-size="12" value="{{curTime}}" max="{{maxValue}}" bindchange="handleSliderChange"/>
+      <view class="tot-time">{{totalTime}}</view>
     </view>
     <view class="controls">
       <block wx:for="{{controls}}" wx:key="index">
-        <view class="controls-item" data-index="index" bind:tap="itemClick">
-          <image src="{{item.icon}}" mode="widthFix"/>
+        <view class="controls-item" data-index="{{index}}" data-src="{{item.icon}}" bind:tap="itemClick">
+          <image src="{{item.icon}}" class="{{index === 2 ? 'play-btn' : ''}}" mode="widthFix"/>
+        </view>
+      </block>
+    </view>
+    <view class="comment">
+      <view class="title">精彩评论</view>
+      <block wx:for="{{hcomments}}" wx:key="index">
+        <view class="comment-item">
+          {{item.content}}
+        </view>
+      </block>
+      <view class="title">最新评论</view>
+      <block wx:for="{{ncomments}}" wx:key="index">
+        <view class="comment-item">
+          {{item.content}}
         </view>
       </block>
     </view>

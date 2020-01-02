@@ -16,5 +16,5 @@
 </view>
 
 <!-- 播放界面 -->
-<w-play wx:if="{{showPlay}}" musicIfo="{{musicIfo}}"/>
+<w-play wx:if="{{showPlay}}" musicIfo="{{musicIfo}}" bind:playGoBack="handlePlayGoBack"/>
 

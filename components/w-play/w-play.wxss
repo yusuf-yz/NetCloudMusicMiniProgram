@@ -3,20 +3,81 @@
 background-color: #9e9e9e;
 }
 
+.top {
+  display: flex;
+  align-items: center;
+  padding-top: 20rpx;
+}
+
 .back {
   width: 60rpx;
+  padding-left: 30rpx;
+  padding-right: 40rpx;
+}
+
+.song-ifo {
+  overflow: hidden;
+}
+
+.song-ifo .song-name {
+  font-size: 32rpx;
+  padding-bottom: 10rpx;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.song-ifo .song-author {
+  font-size: 24rpx;
+  color: #ffffff;
 }
 
 .middle {
-  text-align: center
+  text-align: center;
+  margin: 80rpx 0;
 }
 
 .middle image {
-  width: 160rpx;
+  width: 360rpx;
+  border: 10rpx solid #eeeeee;
+  border-radius: 50%;
+  animation: rotate 15s linear infinite;
+}
+
+.middle .play {
+  animation-play-state: running;   
+}
+
+.middle .pause {
+  animation-play-state: paused;
+}
+
+@keyframes rotate {
+  from{transform: rotate(0deg)}
+  to{transform: rotate(359deg)}
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+}
+
+.slider .cur-time, .tot-time {
+  font-size: 24rpx;
+  color: #ffffff;
+}
+
+slider {
+  flex: 2;
 }
 
 .controls {
   display: flex;
+  align-items: center;
+  padding-bottom: 50rpx;
+  border-bottom: 16rpx solid #eeeeee;
 }
 
 .controls-item {
@@ -26,4 +87,12 @@ background-color: #9e9e9e;
 
 .controls-item image {
   width: 60rpx;
+}
+
+.controls-item .play-btn {
+  width: 80rpx;
+}
+
+.comment-item {
+  color: #ffffff;
 }

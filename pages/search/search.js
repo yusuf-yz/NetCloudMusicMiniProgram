@@ -15,7 +15,7 @@ Page({
     showHot: true, // 热搜版
     showResult: false, // 搜索结果页
     showSearch: true, // 搜索页
-    showPlay: false // 播放页
+    showPlay: false, // 播放页
   },
 
   /**
@@ -121,7 +121,7 @@ Page({
    * 播放
    */
   handleGetMusicIfo: function (data) {
-    console.log(data.detail)
+    // console.log(data.detail)
     const musicIfo = data.detail
 
     this.setData({
@@ -131,5 +131,15 @@ Page({
     })
 
     // console.log(this.data.musicIfo)
+  },
+
+  /**
+   * 播放时返回
+   */
+  handlePlayGoBack: function () {
+    this.setData({
+      showSearch: true,
+      showPlay: false
+    })
   }
 })

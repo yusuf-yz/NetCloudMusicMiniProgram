@@ -46,3 +46,16 @@ export function getMusicDetail(ids) {
     }
   })
 }
+
+/**
+ * 单曲评论
+ */
+export function getMusicComment(id, limit) {
+  return request({
+    url: '/comment/music',
+    data: {
+      id,
+      limit
+    }
+  })
+}

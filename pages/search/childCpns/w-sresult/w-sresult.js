@@ -17,6 +17,7 @@ Component({
    */
   data: {
     musicIfo: {
+      id: '',
       name: "",
       author: "",
       musicUrl: "",
@@ -34,13 +35,15 @@ Component({
       this._getMusicUrl(id)
       this._getMusicDetail(id)
 
+      this.setData({
+        "musicIfo.id": id
+      })
+
+      const data = this.data.musicIfo
+
       setTimeout(() => {
-        const data = this.data.musicIfo
-
-        console.log(this.data.musicIfo)
-
         this.triggerEvent('getMusicIfo', data)
-      }, 50)
+      }, 300)
     },
 
     // ---------------- 接口 ----------------
@@ -52,7 +55,6 @@ Component({
       getMusicUrl(id).then(res => {
         if (res.data.code === 200) {
           const musicUrl = res.data.data[0].url
-          // let _musicUrl = 'musicIfo.musicUrl'
 
           this.setData({
             "musicIfo.musicUrl": musicUrl
@@ -71,10 +73,6 @@ Component({
           const name = data.name
           const author = data.al.name
           const imageUrl = data.al.picUrl
-
-          // let _name = 'musicIfo.name'
-          // let _author = 'musicIfo.author'
-          // let _imageUrl = 'musicIfo.imageUrl'
 
           this.setData({
             "musicIfo.name": name,
