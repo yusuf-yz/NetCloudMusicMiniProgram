@@ -11,7 +11,7 @@ Page({
     inputPlace: '', // 搜索框默认值
     histoty: [], // 历史记录默认值
     result: [], // 搜索结果
-    musicIfo: {}, // 单曲详情
+    index: '', // 索引
     showHot: true, // 热搜版
     showResult: false, // 搜索结果页
     showSearch: true, // 搜索页
@@ -42,7 +42,7 @@ Page({
         this.setData({
           hots,
           inputPlace,
-          histoty
+          histoty: this.data.histoty.length === 0 ? histoty : this.data.histoty
         })
       }
     })
@@ -86,12 +86,27 @@ Page({
     const dftKeywords = this.data.inputPlace
     const newHistory = this.data.histoty
 
+    var flag = true
+
+    newHistory.some(item => {
+      if (item === keywords) {
+        flag = false
+        return false
+      }
+    })
+
     if (keywords === '') {
       this._getSearchResult(dftKeywords, 12, 1)
-      newHistory.splice(0, 1, dftKeywords)
+      if (flag) {
+        newHistory.splice(2, 1)
+        newHistory.splice(0, 0, dftKeywords)
+      }
     } else {
       this._getSearchResult(keywords, 12, 1)
-      newHistory.splice(0, 1, keywords)
+      if (flag) {
+        newHistory.splice(2, 1)
+        newHistory.splice(0, 0, keywords)
+      }
     }
 
     this.setData({
@@ -107,8 +122,19 @@ Page({
   handleHSongItemClick: function (data) {
     const keywords = data.detail.sname
     const newHistory = this.data.histoty
-    newHistory.splice(0, 1, keywords)
-
+    var flag = true
+    
+    newHistory.some(item => {
+      if (item === keywords) {
+        flag = false
+        return false
+      }
+    })
+    if (flag) {
+      newHistory.splice(2, 1)
+      newHistory.splice(0, 0, keywords)
+    }
+    
     this._getSearchResult(keywords, 12, 1)
     this.setData({
       histoty: newHistory,
@@ -121,16 +147,13 @@ Page({
    * 播放
    */
   handleGetMusicIfo: function (data) {
-    // console.log(data.detail)
-    const musicIfo = data.detail
+    const index = data.detail
 
     this.setData({
-      musicIfo: musicIfo,
+      index: index,
       showSearch: false,
       showPlay: true
     })
-
-    // console.log(this.data.musicIfo)
   },
 
   /**

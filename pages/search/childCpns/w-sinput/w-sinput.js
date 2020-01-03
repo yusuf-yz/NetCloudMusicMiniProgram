@@ -44,7 +44,6 @@ Component({
      * 确认
      */
     handleConfirm: function () {
-      console.log(this.data.inputValue)
       const value = this.data.inputValue
       const data = { value: value }
       this.triggerEvent('inputConfirm', data, {})

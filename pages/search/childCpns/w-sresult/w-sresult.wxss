@@ -15,7 +15,11 @@
 .result-item {
   display: flex;
   align-items: center;
-  padding: 20rpx 0;
+  padding: 20rpx 16rpx;
+}
+
+.result-item:nth-child(even) {
+  background-color: #f0f0f0;
 }
 
 .result-item .name {

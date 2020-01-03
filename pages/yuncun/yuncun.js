@@ -1,4 +1,6 @@
 // pages/yuncun/yuncun.js
+import { getHotTopic } from '../../service/yuncun.js'
+import { getHotWall } from '../../service/yuncun.js'
 Page({
 
   /**
@@ -19,14 +21,15 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    // this._getHotTopic(20)
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this._getHotTopic(20)
+    this._getHotWall()
   },
 
   /**
@@ -36,31 +39,26 @@ Page({
 
   },
 
+  /* ---------------- 接口 ---------------- */
   /**
-   * 生命周期函数--监听页面卸载
+   * 热门话题
    */
-  onUnload: function () {
-
+  _getHotTopic: function (limit) {
+    getHotTopic(limit).then(res => {
+      if (res.data.code === 200) {
+        console.log(res)
+      }
+    })
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 云村热评
    */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  _getHotWall: function () {
+    getHotWall().then(res => {
+      if (res.data.code === 200) {
+        console.log(res)
+      }
+    })
   }
 })

@@ -1,14 +1,15 @@
 <!--components/w-play/w-play.wxml-->
+<wxs src="./formatTime.wxs" module="format" />
 <view class="audio">
   <view class="top">
     <image class="back" src="/assets/image/play/back.png" bind:tap="handleBack" mode="widthFix"/>
     <view class="song-ifo">
-      <view class="song-name">{{musicIfo.name}}</view>
-      <view class="song-author">{{musicIfo.author}}</view>
+      <view class="song-name">{{name}}</view>
+      <view class="song-author">{{author}}</view>
     </view>
   </view>
   <view class="middle">
-    <image class="{{isPlay ? 'play' : 'pause'}}" src="{{musicIfo.imageUrl}}" mode="widthFix"/>
+    <image class="{{isPlay ? 'play' : 'pause'}}" src="{{imageUrl}}" mode="widthFix"/>
   </view>
   <view class="bottom">
     <view class="slider">
@@ -23,19 +24,48 @@
         </view>
       </block>
     </view>
-    <view class="comment">
+    <view class="comment" wx:if="{{hcomments.length !== 0 || ncomments.length !== 0}}">
       <view class="title">精彩评论</view>
       <block wx:for="{{hcomments}}" wx:key="index">
-        <view class="comment-item">
-          {{item.content}}
+        <view class="hcomment-item">
+          <view class="avatar"><image src="{{item.user.avatarUrl}}" mode="widthFix"/></view>
+          <view class="name-content">
+            <text class="name">{{item.user.nickname}}</text>：
+            <text class="content">{{item.content}}</text>
+            <view class="time-like">
+              <view class="time">
+                {{format.dateFormat(item.time)}}
+              </view>
+              <view class="like">
+                <image class="like-icon" src="/assets/image/play/like.png" mode="widthFix"/>
+                <text class="like-count">（{{item.likedCount}}）</text>
+              </view>
+            </view>
+          </view>
         </view>
       </block>
       <view class="title">最新评论</view>
       <block wx:for="{{ncomments}}" wx:key="index">
-        <view class="comment-item">
-          {{item.content}}
+        <view class="ncomment-item">
+          <view class="avatar"><image src="{{item.user.avatarUrl}}" mode="widthFix"/></view>
+          <view class="name-content">
+            <text class="name">{{item.user.nickname}}</text>：
+            <text class="content">{{item.content}}</text>
+            <view class="time-like">
+              <view class="time">
+                {{format.dateFormat(item.time)}}
+              </view>
+              <view class="like">
+                <image class="like-icon" src="/assets/image/play/like.png" mode="widthFix"/>
+                <text class="like-count">（{{item.likedCount}}）</text>
+              </view>
+            </view>
+          </view>
         </view>
       </block>
+    </view>
+    <view class="no-comment" wx:else>
+      暂无评论~
     </view>
   </view>
 </view>

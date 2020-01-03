@@ -1,6 +1,6 @@
 /* components/w-play/w-play.wxss */
 .audio {
-background-color: #9e9e9e;
+background-color: #ff5777;
 }
 
 .top {
@@ -93,6 +93,64 @@ slider {
   width: 80rpx;
 }
 
-.comment-item {
+.no-comment {
+  padding: 30rpx;
+  text-align: center;
+}
+
+.comment {
+  padding: 0 30rpx;
+  padding-bottom: 20rpx;
+}
+
+.comment .title {
+  font-size: 32rpx;
+  padding-top: 20rpx;
+  font-weight: 700;
+  font-family: STKaiti;
+  border-bottom: 2rpx solid #ffffff;
+}
+
+.hcomment-item, .ncomment-item {
+  display: flex;
+  padding: 10rpx;
+  font-size: 24rpx;
   color: #ffffff;
+  border-bottom: 2rpx dashed #ffffff;
+}
+
+/* .hcomment-item:last-child {
+  border-bottom: none;
+  padding-bottom: 20rpx;
+} */
+
+.ncomment-item:last-child {
+  border-bottom: none;
+}
+
+.comment .avatar image {
+  width: 72rpx;
+  padding-right: 10rpx;
+}
+
+.comment .name-content {
+  flex: 2;
+}
+
+.comment .name-content .name {
+  font-family: STKaiti;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.comment .time-like {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10rpx;
+}
+
+.comment .like .like-icon {
+  width: 32rpx;
+  vertical-align: middle;
 }

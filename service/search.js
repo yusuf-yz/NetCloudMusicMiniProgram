@@ -59,3 +59,15 @@ export function getMusicComment(id, limit) {
     }
   })
 }
+
+/**
+ * 歌词
+ */
+export function getMusicLyric(id) {
+  return request({
+    url: '/lyric',
+    data: {
+      id
+    }
+  })
+}

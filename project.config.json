@@ -97,6 +97,13 @@
 					"id": -1,
 					"name": "搜索",
 					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "云村",
+					"pathName": "pages/yuncun/yuncun",
 					"scene": null
 				}
 			]
