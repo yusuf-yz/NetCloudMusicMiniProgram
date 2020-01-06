@@ -4,14 +4,24 @@
                bind:search="handleSearch"
 /> -->
 
-<!-- 轮播图 -->
-<w-swiper list="{{banners}}"/>
+<view class="default" wx:if="{{isShow}}">
 
-<!-- 类别 -->
-<w-category list="{{categorys}}" bind:categoryClick="handleCategoryClick"/>
+  <!-- 轮播图 -->
+  <w-swiper list="{{banners}}"/>
 
-<!-- 推荐歌单 -->
-<w-recommend list="{{recommends}}"/>
+  <!-- 类别 -->
+  <w-category list="{{categorys}}" bind:categoryClick="handleCategoryClick"/>
 
-<!-- 热门电台 -->
-<w-hotradio list="{{hotradios}}"/>
+  <!-- 推荐歌单 -->
+  <w-recommend list="{{recommends}}"/>
+
+  <!-- 热门电台 -->
+  <w-hotradio list="{{hotradios}}"/>
+
+</view>
+
+<view class="daily-recommend" wx:if="{{showDaily}}">
+
+  <w-day-recommend poster="{{poster}}" recommendList="{{recommendList}}"/>
+
+</view>

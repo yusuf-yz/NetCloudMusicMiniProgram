@@ -1,0 +1,27 @@
+<!--pages/home/childCpns/w-day-recommend/w-day-recommend.wxml-->
+<view class="day-recommend">
+  <view class="top">
+    <image class="poster" src="{{poster}}" mode="widthFix"/>
+    <image class="back-icon" src="/assets/image/home/back.png" mode="widthFix"/>
+  </view>
+  <view class="main">
+    <view class="play-all">
+      <image src="/assets/image/home/play_all.png" mode="widthFix"/>
+      播放全部
+    </view>
+    <block wx:for="{{recommendList}}" wx:key="index">
+      <view class="list">
+        <view class="blur-pic">
+          <image src="{{item.album.blurPicUrl}}" mode="widthFix"/>
+        </view>
+        <view class="content">
+          <text class="name">{{item.name}}</text>
+          <text class="author">{{item.artists[0].name}}</text>
+        </view>
+        <view class="play-icon">
+          <image src="/assets/image/home/play.png" mode="widthFix"/>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

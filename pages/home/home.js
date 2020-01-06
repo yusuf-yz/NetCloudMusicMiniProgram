@@ -24,6 +24,10 @@ Page({
     ], // 分类
     recommends: [], // 推荐歌单
     hotradios: [], // 热门电台
+    recommendList: {}, // 每日推荐
+    poster: '', // 海报
+    isShow: true,
+    showDaily: false,
     showSearch: false
   },
 
@@ -50,9 +54,11 @@ Page({
     getBanner(type).then(res => {
       if (res.data.code === 200) {
         const banners = res.data.banners
+        const poster = banners[0].pic
 
         this.setData({
-          banners
+          banners,
+          poster
         })
       }
     })
@@ -65,6 +71,10 @@ Page({
     getDayRecommend().then(res => {
       if (res.data.code === 200) {
         console.log(res)
+        const data = res.data.data.dailySongs
+        this.setData({
+          recommendList: data
+        })
       } else {
         wx.showToast({
           title: '请先登录',
@@ -157,6 +167,10 @@ Page({
     switch (index) {
       case 0:
         this._getDayRecommend()
+        this.setData({
+          isShow: false,
+          showDaily: true
+        })
         break
       case 1:
         this._getPlayList()
