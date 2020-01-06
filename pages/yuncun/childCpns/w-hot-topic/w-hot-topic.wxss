@@ -1,0 +1,34 @@
+/* pages/yuncun/childCpns/w-hot-topic/w-hot-topic.wxss */
+.hot-topic {
+  /* margin: 20rpx 40rpx; */
+}
+
+.hot-topic-item {
+  padding-bottom: 30rpx;
+  border-bottom: 2rpx solid #dddddd;
+}
+
+.hot-topic-item .title {
+  margin: 0 40rpx;
+  padding: 20rpx 0;
+  color: rgb(0, 145, 241)
+}
+
+.hot-topic-item .content {
+  margin: 0 40rpx;
+  padding-bottom: 20rpx;
+  font-size: 28rpx;
+}
+
+.hot-topic-item:nth-child(even) {
+  text-align: right;
+}
+
+.hot-topic-item:nth-child(even) .title {
+  position: relative;
+}
+
+.hot-topic-item .image image {
+  margin: 0 40rpx;
+  width: 450rpx;
+}

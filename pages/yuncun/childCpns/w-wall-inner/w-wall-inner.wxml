@@ -1,0 +1,20 @@
+<!--pages/yuncun/childCpns/w-wall-inner/w-wall-inner.wxml-->
+<view class="wall-inner">
+  <view class="back">
+    <image src="/assets/image/yuncun/back.png" bind:tap="handleClick" mode="widthFix"/>
+    <text>热评墙</text>
+  </view>
+  <swiper class="swiper" circular="{{true}}" bindchange="handleChange">
+    <block wx:for="{{hotWallResult}}" wx:key="index">
+      <swiper-item class="swiper-item">
+        <view class="userIfo">
+          <image src="{{item.simpleUserInfo.avatar}}" mode="widthFix"/>
+          <text class="name">{{item.simpleUserInfo.nickname}}</text>
+        </view>
+        <view class="quote"><image src="/assets/image/yuncun/quote.png" mode="widthFix"/></view>
+        <view class="content">{{item.content}}</view>
+        <view class="music">{{item.simpleResourceInfo.name}} - {{item.simpleResourceInfo.song.ar[0].name}}</view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

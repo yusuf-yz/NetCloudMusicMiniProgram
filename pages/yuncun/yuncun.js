@@ -7,37 +7,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    hotWallResult: {},
+    hotTopicResult: {},
+    isShow: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this._getHotTopic(10)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    // this._getHotTopic(20)
-  },
+
+  /* ---------------- 操作 ---------------- */
 
   /**
-   * 生命周期函数--监听页面显示
+   * 获取云村热评
    */
-  onShow: function () {
-    this._getHotTopic(20)
+  handleGetHotWall: function () {
     this._getHotWall()
+    this.setData({
+      isShow: !this.data.isShow
+    })
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
+   * 返回
    */
-  onHide: function () {
-
+  handleGoBack: function () {
+    this.setData({
+      isShow: !this.data.isShow
+    })
   },
+
 
   /* ---------------- 接口 ---------------- */
   /**
@@ -47,6 +50,11 @@ Page({
     getHotTopic(limit).then(res => {
       if (res.data.code === 200) {
         console.log(res)
+        const data = res.data.hot
+
+        this.setData({
+          hotTopicResult: data
+        })
       }
     })
   },
@@ -58,6 +66,11 @@ Page({
     getHotWall().then(res => {
       if (res.data.code === 200) {
         console.log(res)
+        const data = res.data.data
+
+        this.setData({
+          hotWallResult: data
+        })
       }
     })
   }

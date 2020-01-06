@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "w-hot-wall": "./childCpns/w-hot-wall/w-hot-wall",
+    "w-hot-topic": "./childCpns/w-hot-topic/w-hot-topic",
+    "w-wall-inner": "./childCpns/w-wall-inner/w-wall-inner"
+  }
 }

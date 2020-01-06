@@ -40,6 +40,15 @@ Page({
   /* ------------------ 表单操作 ------------------ */
 
   /**
+   * 返回
+   */
+  handleGoBack: function () {
+    this.setData({
+      showLoginForm: false
+    })
+  },
+
+  /**
    * 立即登录
    */
   handleLogin: function () {
@@ -152,6 +161,12 @@ Page({
           mask: true,
           image: '/assets/image/profile/error.png'
         })
+      } else if (res.data.code === -2) {
+        wx.showToast({
+          title: '重复签到',
+          mask: true,
+          image: '/assets/image/profile/error.png'
+        })
       }
     })
   },
@@ -233,6 +248,7 @@ Page({
         this.setData({
           isLogin: false
         })
+        wx.removeStorageSync('cookie')
       }
     })
   }

@@ -1,5 +1,8 @@
 <!--pages/profile/login/login.wxml-->
 <view class="login">
+  <view class="back">
+    <image src="/assets/image/profile/back.png" mode="widthFix" bind:tap="handleBack"/>
+  </view>
   <view class="userName">
     <image src="/assets/image/profile/ic_username.png" mode="widthFix"/>
     <input value="{{userName}}" type="number" maxlength="11" bindinput="handleUNameInput" placeholder="请输入手机号" placeholder-class="placeholder"/>

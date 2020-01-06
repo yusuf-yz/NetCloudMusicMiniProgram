@@ -1,0 +1,14 @@
+<!--pages/yuncun/childCpns/w-hot-wall/w-hot-wall.wxml-->
+<view class="hot-wall" bind:tap="handleClick">
+  <view class="content">
+    <view class="title">
+      <text>云村热评墙</text>
+      <image src="/assets/image/yuncun/right.png" mode="widthFix"/>
+    </view>
+    <view class="wish">总有一堵墙，为你而立，也总会有一个人会帮你把它推倒</view>
+  </view>
+  <view class="Date">
+    <view class="month">{{month}}.</view>
+    <view class="day">{{day}}</view>
+  </view>
+</view>

@@ -2,11 +2,21 @@
 .login {
   text-align: center;
   margin: 0 auto;
-  min-height: 900rpx;
-  padding-top: 100rpx;
+  min-height: 1110rpx;
   background: url("https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3168197025,921443857&fm=26&gp=0.jpg") no-repeat;
   background-size: 100% 100%;
   -moz-background-size:100% 100%;
+}
+
+.login .back {
+  text-align: left;
+  padding: 30rpx;
+  height: 60rpx;
+}
+
+.login .back image {
+  width: 60rpx;
+  margin: 0;
 }
 
 .login .userName, .password, .verify {

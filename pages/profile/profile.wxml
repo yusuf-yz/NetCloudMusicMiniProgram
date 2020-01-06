@@ -16,4 +16,4 @@
 </view>
 
 <!-- 登录表单 -->
-<w-login wx:if="{{showLoginForm}}" bind:comfirmLogin="handleComfirmLogin"/>
+<w-login wx:if="{{showLoginForm}}" bind:goBack="handleGoBack" bind:comfirmLogin="handleComfirmLogin"/>

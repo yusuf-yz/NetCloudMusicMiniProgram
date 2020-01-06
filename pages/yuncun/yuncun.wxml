@@ -1,2 +1,19 @@
 <!--pages/yuncun/yuncun.wxml-->
-<text>pages/yuncun/yuncun.wxml</text>
+
+<view class="outer" wx:if="{{isShow}}">
+
+  <!-- 热评墙 -->
+  <w-hot-wall bind:getHotWall="handleGetHotWall"/>
+
+  <!-- 热门话题 -->
+  <w-hot-topic hotTopicResult="{{hotTopicResult}}" />
+
+</view>
+
+<view class="inner" wx:if="{{!isShow}}">
+
+  <!-- 热评墙 -->
+  <w-wall-inner bind:goBack="handleGoBack" hotWallResult="{{hotWallResult}}"/>
+
+</view>
+

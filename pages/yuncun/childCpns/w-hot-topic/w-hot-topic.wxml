@@ -1,0 +1,11 @@
+<!--pages/yuncun/childCpns/w-hot-topic/w-hot-topic.wxml-->
+
+<view class="hot-topic">
+  <block wx:for="{{hotTopicResult}}" wx:key="index">
+    <view class="hot-topic-item">
+      <view class="title">#{{item.title}}#</view>
+      <view class="content">{{item.text[0]}}</view>
+      <view class="image"><image src="{{item.sharePicUrl}}" mode="widthFix"/></view>
+    </view>
+  </block>
+</view>

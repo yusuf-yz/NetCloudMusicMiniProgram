@@ -1,0 +1,43 @@
+/* pages/yuncun/childCpns/w-hot-wall/w-hot-wall.wxss */
+.hot-wall {
+  background-color: #000000;
+  display: flex;
+  margin: 20rpx;
+  border: 2rpx solid #000000;
+  border-radius: 8rpx;
+  color: #ffffff;
+}
+
+.content {
+  flex: 2;
+  padding: 16rpx 0;
+  padding-left: 12rpx;
+}
+
+.content .title image {
+  position: relative;
+  top: 6rpx;
+  padding-left: 10rpx;
+  width: 36rpx;
+}
+
+.content .title text {
+  display: inline-block;
+  font-size: 36rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.content .wish {
+  font-size: 24rpx;
+  color: #adadad;
+}
+
+.Date {
+  padding: 16rpx 12rpx;
+}
+
+.Date .day {
+  font-size: 40rpx;
+  font-weight: 600;
+}

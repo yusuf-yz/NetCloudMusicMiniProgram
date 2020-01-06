@@ -71,3 +71,15 @@ export function getMusicLyric(id) {
     }
   })
 }
+
+/**
+ * 添加到我的喜欢
+ */
+export function addMyLike(id) {
+  return request({
+    url: '/like',
+    data: {
+      id
+    }
+  })
+}

@@ -1,0 +1,63 @@
+/* pages/yuncun/childCpns/w-wall-inner/w-wall-inner.wxss */
+.wall-inner {
+  background-color: #ff5777;
+}
+
+.wall-inner .back {
+  display: flex;
+  align-items: center;
+  padding-bottom: 60rpx;
+}
+
+.wall-inner .back image {
+  padding-left: 20rpx;
+  width: 48rpx;
+}
+
+.wall-inner .back text {
+  flex: 2;
+  padding-left: 40rpx;
+  color: #ffffff;
+}
+
+.swiper {
+  padding: 20rpx 40rpx;
+  min-height: 962rpx;
+}
+
+.swiper-item .userIfo {
+  display: flex;
+  align-items: center;
+}
+
+.swiper-item .userIfo image {
+  width: 72rpx;
+  border-radius: 50%;
+}
+
+.swiper-item .userIfo text {
+  padding-left: 20rpx;
+  color: #eeeeee;
+}
+
+.swiper-item .quote image {
+  width: 120rpx;
+  margin-top: 60rpx;
+}
+
+.swiper-item .content {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: STKaiti;
+}
+
+.swiper-item .music {
+  font-size: 28rpx;
+  color: #cdcdcd;
+  margin-top: 40rpx;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

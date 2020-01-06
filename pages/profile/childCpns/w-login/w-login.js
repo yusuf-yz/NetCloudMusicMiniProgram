@@ -3,7 +3,8 @@ import { getVerifyCode } from "../../../../service/profile.js"
 import { verifyCode } from "../../../../service/profile.js"
 import { loginByPhone } from "../../../../service/profile.js"
 import { getLoginStatus } from "../../../../service/profile.js"
-const app = getApp()
+
+const COOKIE = 'cookie'
 
 Component({
   /**
@@ -28,28 +29,47 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    // 用户名输入
+
+    /**
+     * 返回
+     */
+    handleBack: function () {
+      this.triggerEvent('goBack')
+    },
+
+    /**
+     * 用户名输入
+     */
     handleUNameInput: function (e) {
       const userName = e.detail.value
       this.setData({
         userName
       })
     },
-    // 密码输入
+    
+    /**
+     * 密码输入
+     */
     handlePWDInput: function (e) {
       const password = e.detail.value
       this.setData({
         password
       })
     },
-    // 验证码输入
+    
+    /**
+     * 验证码输入
+     */
     handleVCodeInput: function (e) {
       const code = e.detail.value
       this.setData({
         code
       })
     },
-    // 倒计时
+    
+    /**
+     * 倒计时
+     */
     timer: function () {
       let time = 60
       let timer = setInterval(() => {
@@ -68,7 +88,10 @@ Component({
         }
       }, 1000)
     },
-    // 获取验证码
+    
+    /**
+     * 获取验证码
+     */
     handleGetCode: function () {
       const phone = this.data.userName
       if (phone === '') {
@@ -86,40 +109,57 @@ Component({
         this.timer()
       }
     },
-    // 获取验证码接口
+
+    /**
+     * 获取验证码接口
+     */
     _getVerifyCode: function (phone) {
       getVerifyCode(phone).then(res => {
         if (res.data.code === 200) {
         }
       })
     },
-    // 登录
+    
+    /**
+     * 登录
+     */
     handleConfirm: function () {
       const phone = this.data.userName
       const password = this.data.password
       this._loginByPhone(phone, password)
     },
-    // 手机号登录接口
+
+    /**
+     * 手机号登录接口
+     */
     _loginByPhone: function (phone, password) {
       loginByPhone(phone, password).then(res => {
         if (res.data.code === 200) {
+          if (res.header && res.header['Set-Cookie']) {
+            wx.setStorageSync(COOKIE, res.header['Set-Cookie'])
+          }
           let nickname = res.data.profile.nickname
           let avatarUrl = res.data.profile.avatarUrl
           let backgroundUrl = res.data.profile.backgroundUrl
           let uid = res.data.profile.userId
-          let token = res.data.token
+          // let token = res.data.token
 
-          app.globalData.token = token
+          // try {
+          //   let val = wx.getStorageSync(COOKIE)
+          //   console.log(val)
+          // } catch (e) {
 
-          console.log(app.globalData)
-          // 存储token
-          // wx.setStorageSync(app.globalData.token, token)
+          // }
 
           let data = { nickname: nickname, avatarUrl: avatarUrl, backgroundUrl: backgroundUrl, uid: uid }
           this.triggerEvent('comfirmLogin', data)
         }
       })
     },
+
+    /**
+     * 验证验证码
+     */
     _verifyCode: function(phone, captcha) {
       verifyCode(phone, captcha).then(res => {
         if (res.data.code === 200) {

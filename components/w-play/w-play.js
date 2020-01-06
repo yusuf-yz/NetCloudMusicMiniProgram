@@ -4,6 +4,7 @@ import { getMusicUrl } from '../../service/search.js'
 import { getMusicDetail } from '../../service/search.js'
 import { getMusicComment } from '../../service/search.js'
 import { getMusicLyric } from '../../service/search.js'
+import { addMyLike } from '../../service/search.js'
 
 Component({
   /**
@@ -97,9 +98,11 @@ Component({
      */
     itemClick: function (e) {
       const index = e.currentTarget.dataset.index
+      const id = this.properties.result[this.data.index].id
 
       switch (index) {
         case 0:
+          this._addMyLike(id)
           break
         case 1:
           this.switchPreSong()
@@ -373,6 +376,21 @@ Component({
           let data = res.data.lrc.lyric
           console.log(res)
           console.log(data)
+        }
+      })
+    },
+
+    /**
+     *添加到我的喜欢列表
+     */
+    _addMyLike: function (id) {
+      addMyLike(id).then(res => {
+        if (res.data.code === 200) {
+          console.log(res)
+          wx.showToast({
+            title: '添加成功',
+            mask: true
+          })
         }
       })
     }
