@@ -55,13 +55,15 @@ Page({
     this.setData({
       showLoginForm: !this.data.showLoginForm
     })
+    try {
+      console.log(wx.getStorageSync('cookie'))
+    } catch (e) {}
   },
 
   /**
    * 确定登录
    */
   handleComfirmLogin: function (data) {
-    console.log(data)
     const avatar = data.detail.avatarUrl
     const userName = data.detail.nickname
     const uid = data.detail.uid
@@ -248,7 +250,13 @@ Page({
         this.setData({
           isLogin: false
         })
-        wx.removeStorageSync('cookie')
+        try {
+          wx.removeStorageSync('cookie')
+        } catch (e) {}
+
+        try {
+          console.log(wx.getStorageSync('cookie'))
+        } catch (e) { }
       }
     })
   }

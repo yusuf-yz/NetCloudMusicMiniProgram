@@ -304,14 +304,14 @@ Component({
      */
     endPlay: function () {
       myAudio.onEnded(() => {
-        console.log('播放结束')
         myAudio.offEnded()
+        console.log('播放结束')
+        this.switchNextSong()
         let src = 'controls[2].icon'
         this.setData({
           [src]: "/assets/image/play/play.png",
           isPlay: false
         })
-        this.switchNextSong()
       }) 
     },
 
@@ -373,9 +373,9 @@ Component({
     _getMusicLyric: function (id) {
       getMusicLyric(id).then(res => {
         if (res.data.code === 200) {
-          let data = res.data.lrc.lyric
-          console.log(res)
-          console.log(data)
+          // let data = res.data.lrc.lyric
+          // console.log(res)
+          // console.log(data)
         }
       })
     },

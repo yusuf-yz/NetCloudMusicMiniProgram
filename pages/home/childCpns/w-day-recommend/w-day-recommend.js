@@ -18,7 +18,13 @@ Component({
    * 组件的初始数据
    */
   data: {
+    currentDay: ''
+  },
 
+  lifetimes: {
+    attached: function () {
+      this.getCurrentDate()
+    }
   },
 
   /**
@@ -26,5 +32,38 @@ Component({
    */
   methods: {
 
+    /**
+     * 获取日期
+     */
+    getCurrentDate: function () {
+      let now = new Date().toString().split(' ')
+      let day = now[2]
+      this.setData({
+        currentDay: day
+      })
+    },
+
+    /**
+     * 返回
+     */
+    handleClick: function () {
+      this.triggerEvent('goBack')
+    },
+
+    /**
+     * 播放
+     */
+    handlePlay: function (e) {
+      const index = e.currentTarget.dataset.index
+      const data = {index: index}
+      this.triggerEvent('readyPlay', data)
+    },
+
+    /**
+     * 播放全部
+     */
+    handlePlayAll: function () {
+      this.triggerEvent('playAll')
+    }
   }
 })

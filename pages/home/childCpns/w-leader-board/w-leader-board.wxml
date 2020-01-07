@@ -1,0 +1,6 @@
+<!--pages/home/childCpns/w-leader-board/w-leader-board.wxml-->
+<view class="leader-board">
+  <view class="leader-board-item">
+    <block wx:for="{{boards}}" wx:key="index"></block>
+  </view>
+</view>

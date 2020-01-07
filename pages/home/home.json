@@ -2,6 +2,7 @@
   "usingComponents": {
     "w-tab-control": "/components/w-tab-control/w-tab-control",
     "w-swiper": "/components/w-swiper/w-swiper",
+    "w-play": "/components/w-play/w-play",
     "w-category": "./childCpns/w-category/w-category",
     "w-recommend": "./childCpns/w-recommend/w-recommend",
     "w-hotradio": "./childCpns/w-hotradio/w-hotradio",

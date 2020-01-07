@@ -2,15 +2,21 @@
 <view class="day-recommend">
   <view class="top">
     <image class="poster" src="{{poster}}" mode="widthFix"/>
-    <image class="back-icon" src="/assets/image/home/back.png" mode="widthFix"/>
+    <image bind:tap="handleClick" class="back-icon" src="/assets/image/home/back.png" mode="widthFix"/>
   </view>
   <view class="main">
-    <view class="play-all">
-      <image src="/assets/image/home/play_all.png" mode="widthFix"/>
-      播放全部
+    <view class="play-all" bind:tap="handlePlayAll">
+      <view class="play-btn">
+        <image src="/assets/image/home/play_all.png" mode="widthFix"/>
+        <text>播放全部</text>
+      </view>
+      <view class="date">
+        <image src="/assets/image/home/date.png" mode="widthFix"/>
+        <text>{{currentDay}}</text>
+      </view>
     </view>
     <block wx:for="{{recommendList}}" wx:key="index">
-      <view class="list">
+      <view class="list" bind:tap="handlePlay" data-index="{{index}}">
         <view class="blur-pic">
           <image src="{{item.album.blurPicUrl}}" mode="widthFix"/>
         </view>

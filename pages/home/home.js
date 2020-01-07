@@ -26,9 +26,12 @@ Page({
     hotradios: [], // 热门电台
     recommendList: {}, // 每日推荐
     poster: '', // 海报
-    isShow: true,
-    showDaily: false,
-    showSearch: false
+    currentDay: '', // 当日
+    index: '', // 首次传入索引
+    isShow: true, // 主页
+    showDaily: false, // 每日推荐组件
+    showRecommend: true, // 每日推荐列表页
+    showPlay: false // 播放页
   },
 
   /**
@@ -45,7 +48,7 @@ Page({
     this._getHotRadio(3)
   },
 
-  // -------------- 网络请求函数 ---------------
+  // -------------- 接口 ---------------
 
   /**
    * 获取轮播图
@@ -70,7 +73,6 @@ Page({
   _getDayRecommend: function() {
     getDayRecommend().then(res => {
       if (res.data.code === 200) {
-        console.log(res)
         const data = res.data.data.dailySongs
         this.setData({
           recommendList: data
@@ -147,7 +149,7 @@ Page({
     })
   },
 
-  // -------------- 事件监听函数 ---------------
+  // -------------- 操作 ---------------
 
   /**
    * 轮播图
@@ -163,7 +165,6 @@ Page({
    */
   handleCategoryClick: function(data) {
     const index = data.detail.index
-    console.log(index)
     switch (index) {
       case 0:
         this._getDayRecommend()
@@ -184,5 +185,49 @@ Page({
       default:
         break
     }
+  },
+
+  /**
+   * 每日推荐返回
+   */
+  handleDailyGoBack: function () {
+    this.setData({
+      isShow: true,
+      showDaily: false
+    })
+  },
+
+  /**
+   * 每日推荐播放
+   */
+  handleReadyPlay: function (e) {
+    const index = e.detail.index
+    this.setData({
+      index: index,
+      showPlay: true,
+      showRecommend: false
+    })
+  },
+
+  /**
+   * 每日推荐播放全部
+   */
+  handlePlayAll: function () {
+    const index = 0
+    this.setData({
+      index: index,
+      showPlay: true,
+      showRecommend: false
+    })
+  },
+
+  /**
+   * 播放返回
+   */
+  handlePlayGoBack: function () {
+    this.setData({
+      showPlay: false,
+      showRecommend: true
+    })
   }
 })

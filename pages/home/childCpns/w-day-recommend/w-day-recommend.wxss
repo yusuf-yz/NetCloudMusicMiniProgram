@@ -1,11 +1,14 @@
 /* pages/home/childCpns/w-day-recommend/w-day-recommend.wxss */
 .top .poster {
   width: 750rpx;
+  opacity: 0.8;
 }
 
 .top .back-icon {
-  width: 48rpx;
+  width: 60rpx;
   position: absolute;
+  top: 30rpx;
+  left: 30rpx;
   z-index: 999;
 }
 
@@ -20,11 +23,32 @@
   padding: 20rpx 30rpx;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  line-height: 1;
 }
 
-.main .play-all image {
+.play-all .date image {
+  width: 72rpx;
+}
+
+.play-all .date text {
+  position: relative;
+  color: #ff5777;
+  font-size: 32rpx;
+  font-weight: 500;
+  font-family: STXingkai;
+  right: 52rpx;
+  bottom: 18rpx;
+}
+
+.play-all .play-btn image {
   width: 48rpx;
   padding-right: 20rpx;
+}
+
+.play-all .play-btn text{
+  position: relative;
+  bottom: 10rpx;
 }
 
 .main .list {

@@ -22,6 +22,8 @@
 
 <view class="daily-recommend" wx:if="{{showDaily}}">
 
-  <w-day-recommend poster="{{poster}}" recommendList="{{recommendList}}"/>
+  <w-day-recommend wx:if="{{showRecommend}}" bind:goBack="handleDailyGoBack" bind:readyPlay="handleReadyPlay" bind:playAll="handlePlayAll" poster="{{poster}}" recommendList="{{recommendList}}"/>
+
+  <w-play wx:if="{{showPlay}}" result="{{recommendList}}" index="{{index}}" bind:playGoBack="handlePlayGoBack"/>
 
 </view>

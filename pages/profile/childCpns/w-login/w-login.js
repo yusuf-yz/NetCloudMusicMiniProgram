@@ -3,6 +3,7 @@ import { getVerifyCode } from "../../../../service/profile.js"
 import { verifyCode } from "../../../../service/profile.js"
 import { loginByPhone } from "../../../../service/profile.js"
 import { getLoginStatus } from "../../../../service/profile.js"
+import { refreshLogin } from "../../../../service/profile.js"
 
 const COOKIE = 'cookie'
 
@@ -138,21 +139,25 @@ Component({
           if (res.header && res.header['Set-Cookie']) {
             wx.setStorageSync(COOKIE, res.header['Set-Cookie'])
           }
+
           let nickname = res.data.profile.nickname
           let avatarUrl = res.data.profile.avatarUrl
           let backgroundUrl = res.data.profile.backgroundUrl
           let uid = res.data.profile.userId
-          // let token = res.data.token
-
-          // try {
-          //   let val = wx.getStorageSync(COOKIE)
-          //   console.log(val)
-          // } catch (e) {
-
-          // }
 
           let data = { nickname: nickname, avatarUrl: avatarUrl, backgroundUrl: backgroundUrl, uid: uid }
           this.triggerEvent('comfirmLogin', data)
+        }
+      })
+    },
+
+    /**
+     * 刷新登录
+     */
+    _refreshLogin: function () {
+      refreshLogin().then(res => {
+        if (res.data.code === 200) {
+          console.log(res)
         }
       })
     },

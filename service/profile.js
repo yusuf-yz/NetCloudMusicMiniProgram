@@ -40,6 +40,15 @@ export function loginByPhone(phone, password) {
 }
 
 /**
+ * 刷新登录
+ */
+export function refreshLogin() {
+  return request({
+    url: '/login/refresh'
+  })
+}
+
+/**
  * 通知
  */
 export function getMessage(limit, offset) {
