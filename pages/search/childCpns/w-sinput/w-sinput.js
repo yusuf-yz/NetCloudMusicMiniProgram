@@ -17,6 +17,17 @@ Component({
     inputValue: ''
   },
 
+  /* ------------------- 生命周期 ------------------- */
+
+  /**
+   * 组件所在页面的生命周期
+   */
+  pageLifetimes: {
+    hide: function () {
+      this.handleBack()
+    }
+  },
+
   /**
    * 组件的方法列表
    */

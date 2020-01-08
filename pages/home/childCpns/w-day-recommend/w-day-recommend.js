@@ -21,9 +21,22 @@ Component({
     currentDay: ''
   },
 
+  /* ------------------ 生命周期 ------------------ */
+  /**
+   * 组件生命周期
+   */
   lifetimes: {
     attached: function () {
       this.getCurrentDate()
+    }
+  },
+  
+  /**
+   * 组件所属页面生命周期
+   */
+  pageLifetimes: {
+    hide: function () {
+      this.handleClick()
     }
   },
 

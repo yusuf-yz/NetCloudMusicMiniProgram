@@ -11,7 +11,10 @@ Component({
       value: {}
     }
   },
-
+  /* ------------------ 生命周期 ------------------ */
+  /**
+   * 组件生命周期
+   */
   lifetimes: {
     /**
      * 刚被创建
@@ -25,6 +28,15 @@ Component({
           this._getMusicUrl(id)
         })
       }, 1000)
+    }
+  },
+
+  /**
+   * 组件所属页面生命周期
+   */
+  pageLifetimes: {
+    hide: function () {
+      this.handleClick()
     }
   },
 
@@ -43,6 +55,7 @@ Component({
      * 返回
      */
     handleClick: function () {
+      myAudio.destroy()
       this.triggerEvent('goBack')
     },
 

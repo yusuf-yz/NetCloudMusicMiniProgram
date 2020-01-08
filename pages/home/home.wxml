@@ -4,6 +4,7 @@
                bind:search="handleSearch"
 /> -->
 
+<!-- 主页 -->
 <view class="default" wx:if="{{isShow}}">
 
   <!-- 轮播图 -->
@@ -20,10 +21,16 @@
 
 </view>
 
+<!-- 每日推荐 -->
 <view class="daily-recommend" wx:if="{{showDaily}}">
 
   <w-day-recommend wx:if="{{showRecommend}}" bind:goBack="handleDailyGoBack" bind:readyPlay="handleReadyPlay" bind:playAll="handlePlayAll" poster="{{poster}}" recommendList="{{recommendList}}"/>
 
   <w-play wx:if="{{showPlay}}" result="{{recommendList}}" index="{{index}}" bind:playGoBack="handlePlayGoBack"/>
 
+</view>
+
+<!-- 排行榜 -->
+<view class="leader-board">
+  <w-leader-board boards="{{boards}}" wx:if="{{showBoard}}"/>
 </view>

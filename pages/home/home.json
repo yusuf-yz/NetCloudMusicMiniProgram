@@ -6,7 +6,8 @@
     "w-category": "./childCpns/w-category/w-category",
     "w-recommend": "./childCpns/w-recommend/w-recommend",
     "w-hotradio": "./childCpns/w-hotradio/w-hotradio",
-    "w-day-recommend": "./childCpns/w-day-recommend/w-day-recommend"
+    "w-day-recommend": "./childCpns/w-day-recommend/w-day-recommend",
+    "w-leader-board": "./childCpns/w-leader-board/w-leader-board"
   },
   "navigationBarTitleText": "SingleMusic"
 }

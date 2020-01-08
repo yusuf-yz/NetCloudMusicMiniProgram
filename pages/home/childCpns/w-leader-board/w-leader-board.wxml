@@ -1,6 +1,13 @@
 <!--pages/home/childCpns/w-leader-board/w-leader-board.wxml-->
 <view class="leader-board">
   <view class="leader-board-item">
-    <block wx:for="{{boards}}" wx:key="index"></block>
+    <block wx:for="{{boards}}" wx:key="index">
+      <view class="board-pic"><image src="item.coverImgUrl" mode="widthFix"/></view>
+      <view class="board-list">
+        <block wx:for="{{item.tracks}}" wx:for-item="list" wx:key="index">
+          <view class="top-three">{{index + 1}}.{{list.name}}</view>
+        </block>
+      </view>
+    </block>
   </view>
 </view>

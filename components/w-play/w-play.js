@@ -47,6 +47,9 @@ Component({
   },
 
   /* ------------------ 生命周期 ------------------ */
+  /**
+   * 组件生命周期
+   */
   lifetimes: {
 
     /**
@@ -79,6 +82,14 @@ Component({
   },
 
   /**
+   * 组件所属页面生命周期
+   */
+  pageLifetimes: {
+    hide: function () {
+      this.handleBack()
+    }
+  },
+  /**
    * 组件的方法列表
    */
   methods: {
@@ -89,7 +100,7 @@ Component({
      * 返回
      */
     handleBack: function () {
-      // myAudio.destroy()
+      myAudio.destroy()
       this.triggerEvent('playGoBack')
     },
 

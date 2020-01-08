@@ -25,13 +25,15 @@ Page({
     recommends: [], // 推荐歌单
     hotradios: [], // 热门电台
     recommendList: {}, // 每日推荐
+    boards: {}, // 排行榜
     poster: '', // 海报
     currentDay: '', // 当日
     index: '', // 首次传入索引
     isShow: true, // 主页
     showDaily: false, // 每日推荐组件
     showRecommend: true, // 每日推荐列表页
-    showPlay: false // 播放页
+    showPlay: false, // 播放组件
+    showBoard: false, // 排行榜组件
   },
 
   /**
@@ -178,6 +180,10 @@ Page({
         break
       case 2:
         this._getTop(0)
+        this.setData({
+          isShow: false,
+          showBoard: true
+        })
         break
       case 3:
         this._getRadioTop(30, 0)
