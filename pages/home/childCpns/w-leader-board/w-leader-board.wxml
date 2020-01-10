@@ -1,13 +1,16 @@
 <!--pages/home/childCpns/w-leader-board/w-leader-board.wxml-->
 <view class="leader-board">
-  <view class="leader-board-item">
-    <block wx:for="{{boards}}" wx:key="index">
-      <view class="board-pic"><image src="item.coverImgUrl" mode="widthFix"/></view>
-      <view class="board-list">
+  <block wx:for="{{boards}}" wx:key="index">
+    <view class="leader-board-item">
+      <view class="board-pic">
+        <image bind:tap="handleOpenBoard" data-index="{{index}}" src="{{item.coverImgUrl}}" mode="widthFix"/>
+        <text>{{item.name === '云音乐热歌榜' || item.name === '网易原创歌曲榜' ? thursdayUpdate : dayUpdate}}</text>
+      </view>
+      <view class="board-list" bind:tap="handleOpenBoard" data-index="{{index}}">
         <block wx:for="{{item.tracks}}" wx:for-item="list" wx:key="index">
           <view class="top-three">{{index + 1}}.{{list.name}}</view>
         </block>
       </view>
-    </block>
-  </view>
+    </view>
+  </block>
 </view>

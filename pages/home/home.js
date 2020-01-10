@@ -26,6 +26,11 @@ Page({
     hotradios: [], // 热门电台
     recommendList: {}, // 每日推荐
     boards: {}, // 排行榜
+    newSongBoards: {}, // 新歌榜
+    hotSongBoards: {}, // 热歌榜
+    originalBoards: {}, // 原创榜
+    soarSongBoards: {}, // 飙升榜
+    rapSongBoards: {}, // 说唱榜
     poster: '', // 海报
     currentDay: '', // 当日
     index: '', // 首次传入索引
@@ -105,7 +110,37 @@ Page({
   _getTop: function(idx) {
     getTop(idx).then(res => {
       if (res.data.code === 200) {
-        console.log(res)
+        // console.log(res)
+        const data = res.data.playlist
+        switch (idx) {
+          case 0:                 // 新歌榜
+            this.setData({
+              newSongBoards: data
+            })
+            break
+          case 1:                 // 热歌榜
+            this.setData({
+              hotSongBoards: data
+            })
+            break
+          case 2:                 // 原创榜
+            this.setData({
+              originalBoards: data
+            })
+            break
+          case 3:                 // 飙升榜
+            this.setData({
+              soarSongBoards: data
+            })
+            break
+          case 23:                // 说唱榜
+            this.setData({
+              rapSongBoards: data
+            })
+            break
+          default:
+            break
+        }
       }
     })
   },
@@ -179,7 +214,7 @@ Page({
         this._getPlayList()
         break
       case 2:
-        this._getTop(0)
+        this.getMultipleBoards()
         this.setData({
           isShow: false,
           showBoard: true
@@ -191,6 +226,36 @@ Page({
       default:
         break
     }
+  },
+
+  /**
+   * 获取多个榜单
+   */
+  getMultipleBoards: function () {
+    this._getTop(0)
+    this._getTop(1)
+    this._getTop(2)
+    this._getTop(3)
+    this._getTop(23)
+
+    setTimeout(() => {
+      console.log(this.data.newSongBoards)
+      console.log(this.data.hotSongBoards)
+      console.log(this.data.originalBoards)
+      console.log(this.data.soarSongBoards)
+      console.log(this.data.rapSongBoards)
+      const newSongBoards = this.data.newSongBoards
+      const hotSongBoards = this.data.hotSongBoards
+      const originalBoards = this.data.originalBoards
+      const soarSongBoards = this.data.soarSongBoards
+      const rapSongBoards = this.data.rapSongBoards
+
+      const data = [newSongBoards, hotSongBoards, originalBoards, soarSongBoards, rapSongBoards]
+
+      this.setData({
+        boards: data
+      })
+    }, 4000)
   },
 
   /**

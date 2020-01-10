@@ -1,1 +1,46 @@
 /* pages/home/childCpns/w-leader-board/w-leader-board.wxss */
+.leader-board {
+  padding: 20rpx;
+}
+
+.leader-board-item {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.board-pic {
+  flex: 1;
+}
+
+.board-pic text {
+  font-size: 28rpx;
+  color: #ffffff;
+  position: relative;
+  left: 20rpx;
+  bottom: 60rpx;
+}
+
+.board-list {
+  flex: 2;
+  margin-left: 20rpx;
+}
+
+.board-list .top-three {
+  line-height: 80rpx;
+  color: #5c5c5c;
+  font-weight: 400;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.board-pic image {
+  width: 240rpx;
+  border-radius: 8rpx;
+}
+
+.board-list {
+  height: 240rpx;
+  overflow: hidden;
+}
+
