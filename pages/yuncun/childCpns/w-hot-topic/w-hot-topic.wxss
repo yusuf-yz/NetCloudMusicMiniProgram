@@ -1,7 +1,4 @@
 /* pages/yuncun/childCpns/w-hot-topic/w-hot-topic.wxss */
-.hot-topic {
-  /* margin: 20rpx 40rpx; */
-}
 
 .hot-topic-item {
   padding-bottom: 30rpx;

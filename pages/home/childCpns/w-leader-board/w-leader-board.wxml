@@ -1,5 +1,7 @@
 <!--pages/home/childCpns/w-leader-board/w-leader-board.wxml-->
 <view class="leader-board">
+  <view class="back"><image bind:tap="handleBack" src="/assets/image/home/back_icon.png" mode="widthFix"/></view>
+  <view class="title">官方榜</view>
   <block wx:for="{{boards}}" wx:key="index">
     <view class="leader-board-item">
       <view class="board-pic">

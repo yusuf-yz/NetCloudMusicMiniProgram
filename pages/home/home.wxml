@@ -32,5 +32,5 @@
 
 <!-- 排行榜 -->
 <view class="leader-board">
-  <w-leader-board boards="{{boards}}" wx:if="{{showBoard}}"/>
+  <w-leader-board boards="{{boards}}" bind:boardGoBack="hanldeBoardGoBack" wx:if="{{showBoard}}"/>
 </view>

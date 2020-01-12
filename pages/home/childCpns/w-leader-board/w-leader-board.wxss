@@ -3,6 +3,18 @@
   padding: 20rpx;
 }
 
+.back image {
+  width: 72rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #000000;
+  opacity: 0.8;
+  padding-bottom: 30rpx;
+}
+
 .leader-board-item {
   display: flex;
   flex-wrap: nowrap;

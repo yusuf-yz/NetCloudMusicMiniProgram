@@ -300,5 +300,15 @@ Page({
       showPlay: false,
       showRecommend: true
     })
+  },
+
+  /**
+   * 排行榜返回
+   */
+  hanldeBoardGoBack: function () {
+    this.setData({
+      isShow: true,
+      showBoard: false
+    })
   }
 })

@@ -44,6 +44,13 @@ Component({
      */
     handleOpenBoard: function (e) {
       console.log(e)
+    },
+
+    /**
+     * 返回
+     */
+    handleBack: function () {
+      this.triggerEvent('boardGoBack')
     }
   }
 })
