@@ -1,1 +1,85 @@
 /* pages/home/childCpns/w-board-list/w-board-list.wxss */
+.top .poster {
+  width: 750rpx;
+  opacity: 0.8;
+}
+
+.top .back-icon {
+  width: 60rpx;
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+  z-index: 999;
+}
+
+.main {
+  border: 2rpx solid #cdcdcd;
+  border-bottom: 0;
+  border-radius: 16rpx 16rpx 0 0;
+  margin: 0 10rpx;
+}
+
+.main .play-all {
+  padding: 20rpx 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1;
+}
+
+/* .play-all .date image {
+  width: 72rpx;
+} */
+
+/* .play-all .date text {
+  position: relative;
+  color: #ff5777;
+  font-size: 32rpx;
+  font-weight: 500;
+  font-family: STXingkai;
+  right: 52rpx;
+  bottom: 18rpx;
+} */
+
+.play-all .play-btn image {
+  width: 48rpx;
+  padding-right: 20rpx;
+}
+
+.play-all .play-btn text{
+  position: relative;
+  bottom: 10rpx;
+}
+
+.main .list {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  line-height: 1;
+}
+
+.list .blur-pic image {
+  width: 72rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.list .content {
+  flex: 2;
+}
+
+.list .content .name {
+  display: block;
+  padding-bottom: 8rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.list .content .author {
+  font-size: 24rpx;
+  color: #888888;
+}
+
+.list .play-icon image {
+  width: 40rpx;
+}

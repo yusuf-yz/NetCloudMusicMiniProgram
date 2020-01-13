@@ -6,6 +6,8 @@ import { getDayRecommend } from '../../service/home.js'
 import { getPlayList } from '../../service/home.js'
 import { getTop } from '../../service/home.js'
 import { getRadioTop } from '../../service/home.js'
+import { getHighQualityList } from '../../service/home.js'
+import { getPlayListDetail } from '../../service/home.js'
 
 // 注册一个页面
 Page({
@@ -24,21 +26,28 @@ Page({
     ], // 分类
     recommends: [], // 推荐歌单
     hotradios: [], // 热门电台
-    recommendList: {}, // 每日推荐
+    recommendList: {}, // 每日推荐歌曲
     boards: {}, // 排行榜
+    songs: {}, // 歌单
+    list: {}, // 歌单列表
+    listTitle: '', // 歌单列表标题 
+    listAuthor: '', // 歌单列表作者
+    parkSongs: {}, // 歌单广场
     newSongBoards: {}, // 新歌榜
     hotSongBoards: {}, // 热歌榜
     originalBoards: {}, // 原创榜
     soarSongBoards: {}, // 飙升榜
-    rapSongBoards: {}, // 说唱榜
-    poster: '', // 海报
+    // rapSongBoards: {}, // 说唱榜
+    poster: '', // 每日推荐海报
     currentDay: '', // 当日
     index: '', // 首次传入索引
     isShow: true, // 主页
     showDaily: false, // 每日推荐组件
-    showRecommend: true, // 每日推荐列表页
     showPlay: false, // 播放组件
     showBoard: false, // 排行榜组件
+    showSongs: false, // 歌单组件
+    showSongsPark: false, // 歌单广场组件
+    showList: false, // 歌单列表组件
   },
 
   /**
@@ -96,10 +105,14 @@ Page({
   /**
    * 歌单
    */
-  _getPlayList: function() {
-    getPlayList().then(res => {
+  _getPlayList: function(order) {
+    getPlayList(order).then(res => {
       if (res.data.code === 200) {
-        console.log(res)
+        const data = res.data.playlists
+
+        this.setData({
+          songs: data.slice(0, 21)
+        })
       }
     })
   },
@@ -133,11 +146,11 @@ Page({
               soarSongBoards: data
             })
             break
-          case 23:                // 说唱榜
-            this.setData({
-              rapSongBoards: data
-            })
-            break
+          // case 26:                // 抖音榜
+          //   this.setData({
+          //     rapSongBoards: data
+          //   })
+          //   break
           default:
             break
         }
@@ -186,6 +199,45 @@ Page({
     })
   },
 
+  /**
+   * 获取歌单广场
+   */
+  _getHighQualityList: function (cat) {
+    getHighQualityList(cat).then(res => {
+      if (res.data.code === 200) {
+        console.log(res)
+        const data = res.data.playlists
+
+        this.setData({
+          parkSongs: data.length > 22 ? data.slice(0, 21) : data,
+          showSongsPark: true,
+          isShow: false
+        })
+      }
+    })
+  },
+
+  /**
+   * 获取歌单详情
+   */
+  _getPlayListDetail: function (id) {
+    getPlayListDetail(id).then(res => {
+      if (res.data.code === 200) {
+        const data = res.data.playlist.tracks
+        const title = res.data.playlist.name
+        const author = res.data.playlist.creator.nickname
+
+        this.setData({
+          list: data.length > 22 ? data.slice(0, 22) : data,
+          listTitle: title,
+          listAuthor: author,
+          showList: true,
+          isShow: false
+        })
+      }
+    })
+  },
+
   // -------------- 操作 ---------------
 
   /**
@@ -211,7 +263,11 @@ Page({
         })
         break
       case 1:
-        this._getPlayList()
+        this._getPlayList('hot')
+        this.setData({
+          isShow: false,
+          showSongs: true
+        })
         break
       case 2:
         this.getMultipleBoards()
@@ -236,26 +292,26 @@ Page({
     this._getTop(1)
     this._getTop(2)
     this._getTop(3)
-    this._getTop(23)
+    // this._getTop(26)
 
     setTimeout(() => {
-      console.log(this.data.newSongBoards)
-      console.log(this.data.hotSongBoards)
-      console.log(this.data.originalBoards)
-      console.log(this.data.soarSongBoards)
-      console.log(this.data.rapSongBoards)
+      // console.log(this.data.newSongBoards)
+      // console.log(this.data.hotSongBoards)
+      // console.log(this.data.originalBoards)
+      // console.log(this.data.soarSongBoards)
+      // console.log(this.data.rapSongBoards)
       const newSongBoards = this.data.newSongBoards
       const hotSongBoards = this.data.hotSongBoards
       const originalBoards = this.data.originalBoards
       const soarSongBoards = this.data.soarSongBoards
-      const rapSongBoards = this.data.rapSongBoards
+      // const rapSongBoards = this.data.rapSongBoards
 
-      const data = [newSongBoards, hotSongBoards, originalBoards, soarSongBoards, rapSongBoards]
+      const data = [newSongBoards, hotSongBoards, originalBoards, soarSongBoards]
 
       this.setData({
         boards: data
       })
-    }, 4000)
+    }, 3000)
   },
 
   /**
@@ -271,12 +327,12 @@ Page({
   /**
    * 每日推荐播放
    */
-  handleReadyPlay: function (e) {
+  handleDailyPlay: function (e) {
     const index = e.detail.index
     this.setData({
       index: index,
       showPlay: true,
-      showRecommend: false
+      showDaily: false
     })
   },
 
@@ -288,7 +344,7 @@ Page({
     this.setData({
       index: index,
       showPlay: true,
-      showRecommend: false
+      showDaily: false
     })
   },
 
@@ -298,7 +354,17 @@ Page({
   handlePlayGoBack: function () {
     this.setData({
       showPlay: false,
-      showRecommend: true
+      showDaily: true
+    })
+  },
+
+  /**
+   * 歌单返回
+   */
+  handleSongGoBack: function () {
+    this.setData({
+      isShow: true,
+      showSongs: false
     })
   },
 
@@ -309,6 +375,55 @@ Page({
     this.setData({
       isShow: true,
       showBoard: false
+    })
+  },
+
+  /**
+   * 歌单广场
+   */
+  handleGetHighQuality: function () {
+    this._getHighQualityList()
+  },
+  
+  /**
+   * 歌单广场返回
+   */
+  handleParkSongGoBack: function () {
+    this.setData({
+      isShow: true,
+      showSongsPark: false
+    })
+  },
+
+  /**
+   * 推荐歌单详情
+   */
+  handleGetDetail: function (e) {
+    const id = e.detail.id
+
+    this._getPlayListDetail(id)
+  },
+  
+  /**
+   * 推荐歌单播放
+   */
+  handleListPlay: function (e) {
+    const index = e.detail.index
+    this.setData({
+      recommendList: this.data.list,
+      index: index,
+      showPlay: true,
+      showList: false,
+    })
+  },
+
+  /**
+   * 推荐歌单详情返回
+   */
+  handleListGoBack: function () {
+    this.setData({
+      isShow: true,
+      showList: false
     })
   }
 })

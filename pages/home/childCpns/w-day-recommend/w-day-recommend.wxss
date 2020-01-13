@@ -37,7 +37,7 @@
   font-size: 32rpx;
   font-weight: 500;
   font-family: STXingkai;
-  right: 52rpx;
+  right: 54rpx;
   bottom: 18rpx;
 }
 
@@ -61,11 +61,12 @@
 .list .blur-pic image {
   width: 72rpx;
   border-radius: 8rpx;
-  margin-right: 20rpx;
 }
 
 .list .content {
   flex: 2;
+  overflow: hidden;
+  margin: 0 20rpx;
 }
 
 .list .content .name {
@@ -73,6 +74,9 @@
   padding-bottom: 8rpx;
   font-size: 32rpx;
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .list .content .author {

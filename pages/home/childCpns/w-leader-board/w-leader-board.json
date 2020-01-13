@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "w-play": "../../../../components/w-play/w-play",
+    "w-board-list": "../w-board-list/w-board-list"
+  }
 }

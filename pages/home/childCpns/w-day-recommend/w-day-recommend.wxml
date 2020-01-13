@@ -2,7 +2,7 @@
 <view class="day-recommend">
   <view class="top">
     <image class="poster" src="{{poster}}" mode="widthFix"/>
-    <image bind:tap="handleClick" class="back-icon" src="/assets/image/home/back.png" mode="widthFix"/>
+    <image bind:tap="handleBack" class="back-icon" src="/assets/image/home/back.png" mode="widthFix"/>
   </view>
   <view class="main">
     <view class="play-all" bind:tap="handlePlayAll">
@@ -31,3 +31,5 @@
     </block>
   </view>
 </view>
+
+

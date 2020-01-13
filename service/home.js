@@ -46,11 +46,47 @@ export function getDayRecommend () {
 }
 
 /**
- * 歌单
+ * 歌单分类
  */
-export function getPlayList () {
+// export function getPlayList () {
+//   return request({
+//     url: '/playlist/catlist'
+//   })
+// }
+
+/**
+ * 歌单 ( 网友精选碟 )
+ */
+export function getPlayList (order) {
   return request({
-    url: '/playlist/catlist'
+    url: '/top/playlist',
+    data: {
+      order
+    }
+  })
+}
+
+/**
+ * 精品歌单
+ */
+export function getHighQualityList (cat) {
+  return request({
+    url: '/top/playlist/highquality',
+    data: {
+      cat: !cat ? '全部' : cat
+    }
+  })
+}
+
+/**
+ * 歌单详情
+ */
+export function getPlayListDetail (id) {
+  return request({
+    url: '/playlist/detail',
+    data: {
+      id
+    }
   })
 }
 

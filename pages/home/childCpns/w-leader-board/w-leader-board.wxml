@@ -1,14 +1,14 @@
 <!--pages/home/childCpns/w-leader-board/w-leader-board.wxml-->
-<view class="leader-board">
+<view wx:if="{{isShow}}" class="leader-board">
   <view class="back"><image bind:tap="handleBack" src="/assets/image/home/back_icon.png" mode="widthFix"/></view>
   <view class="title">官方榜</view>
   <block wx:for="{{boards}}" wx:key="index">
     <view class="leader-board-item">
       <view class="board-pic">
-        <image bind:tap="handleOpenBoard" data-index="{{index}}" src="{{item.coverImgUrl}}" mode="widthFix"/>
+        <image bind:tap="handleOpenBoard" data-type="{{item.ToplistType}}" src="{{item.coverImgUrl}}" mode="widthFix"/>
         <text>{{item.name === '云音乐热歌榜' || item.name === '网易原创歌曲榜' ? thursdayUpdate : dayUpdate}}</text>
       </view>
-      <view class="board-list" bind:tap="handleOpenBoard" data-index="{{index}}">
+      <view class="board-list" bind:tap="handleOpenBoard" data-type="{{item.ToplistType}}">
         <block wx:for="{{item.tracks}}" wx:for-item="list" wx:key="index">
           <view class="top-three">{{index + 1}}.{{list.name}}</view>
         </block>
@@ -16,3 +16,7 @@
     </view>
   </block>
 </view>
+
+<w-board-list wx:if="{{showBoardList}}" boardList="{{boardList}}" boardPoster="{{boardPoster}}" bind:goBack="handleGoBack" bind:readyPlay="handleReadyPlay" bind:playAll="handlePlayAll" />
+
+<w-play wx:if="{{showPlay}}" result="{{boardList}}" index="{{index}}" bind:playGoBack="handlePlayGoBack"/>

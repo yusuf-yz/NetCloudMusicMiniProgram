@@ -2,10 +2,10 @@
 <view class="recommend">
   <view class="top">
     <view class="title">推荐歌单</view>
-    <view class="btn"><button size="mini">歌单广场</button></view>
+    <view class="btn"><button bind:tap="handleClick" size="mini">歌单广场</button></view>
   </view>
   <block wx:for="{{list}}" wx:key="index">
-    <view class="recommend-item">
+    <view class="recommend-item" data-id="{{item.id}}" bind:tap="handleGetDetail">
       <image src="{{item.picUrl}}" mode="widthFix"/>
       <view class="name">{{item.name}}</view>
     </view>

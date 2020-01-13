@@ -1,14 +1,18 @@
-// pages/home/childCpns/w-board-list/w-board-list.js
+// components/w-list/w-list.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    boardPoster: {
+    title: {
       type: String,
-      value: ''
+      value: '未命名歌单'
     },
-    boardList: {
+    author: {
+      type: String,
+      value: '未知作者'
+    },
+    list: {
       type: Array,
       value: []
     }
@@ -18,7 +22,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    
+
   },
 
   /**
@@ -28,24 +32,19 @@ Component({
     /**
      * 返回
      */
-    handleClick: function () {
+    handleBack: function () {
       this.triggerEvent('goBack')
-    },
-
-    /**
-     * 播放全部
-     */
-    handlePlayAll: function () {
-      this.triggerEvent('playAll')
     },
 
     /**
      * 播放
      */
     handlePlay: function (e) {
+      console.log(e)
       const index = e.currentTarget.dataset.index
-      const data = { index: index }
-      this.triggerEvent('readyPlay', data)
+      // const data = {index: index}
+
+      this.triggerEvent('readyPlay', {index})
     }
   }
 })

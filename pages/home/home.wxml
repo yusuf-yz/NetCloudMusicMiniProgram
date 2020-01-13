@@ -14,23 +14,34 @@
   <w-category list="{{categorys}}" bind:categoryClick="handleCategoryClick"/>
 
   <!-- 推荐歌单 -->
-  <w-recommend list="{{recommends}}"/>
+  <w-recommend list="{{recommends}}" bind:getHighQuality="handleGetHighQuality" bind:getDetail="handleGetDetail"/>
 
   <!-- 热门电台 -->
   <w-hotradio list="{{hotradios}}"/>
 
 </view>
 
+<!-- 播放 -->
+<w-play wx:if="{{showPlay}}" result="{{recommendList}}" index="{{index}}" bind:playGoBack="handlePlayGoBack"/>
+
 <!-- 每日推荐 -->
-<view class="daily-recommend" wx:if="{{showDaily}}">
+<w-day-recommend wx:if="{{showDaily}}" bind:goBack="handleDailyGoBack" bind:readyPlay="handleDailyPlay" bind:playAll="handlePlayAll" poster="{{poster}}" recommendList="{{recommendList}}"/>
 
-  <w-day-recommend wx:if="{{showRecommend}}" bind:goBack="handleDailyGoBack" bind:readyPlay="handleReadyPlay" bind:playAll="handlePlayAll" poster="{{poster}}" recommendList="{{recommendList}}"/>
-
-  <w-play wx:if="{{showPlay}}" result="{{recommendList}}" index="{{index}}" bind:playGoBack="handlePlayGoBack"/>
-
-</view>
 
 <!-- 排行榜 -->
 <view class="leader-board">
+
   <w-leader-board boards="{{boards}}" bind:boardGoBack="hanldeBoardGoBack" wx:if="{{showBoard}}"/>
+
+</view>
+
+<!-- 歌单 -->
+<view class="song-list">
+
+  <w-song-list songs="{{songs}}" bind:songGoBack="handleSongGoBack" wx:if="{{showSongs}}"/>
+
+  <w-song-list songs="{{parkSongs}}" bind:songGoBack="handleParkSongGoBack" wx:if="{{showSongsPark}}"/>
+
+  <w-list list="{{list}}" title="{{listTitle}}" author="{{listAuthor}}" bind:goBack="handleListGoBack" bind:readyPlay="handleListPlay" wx:if="{{showList}}"/>
+
 </view>

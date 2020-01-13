@@ -1,0 +1,20 @@
+<!--pages/home/childCpns/w-song-list/w-song-list.wxml-->
+<view class="song-list" wx:if="{{isShow}}">
+  <view class="back"><image bind:tap="handleBack" src="/assets/image/home/back_icon.png" mode="widthFix"/></view>
+  <view class="title">热门歌单</view>
+  <view class="main">
+    <block wx:for="{{songs}}" wx:key="index">
+      <view class="song-list-item" data-id="{{item.id}}" bind:tap="handleGetDetail">
+        <view class="pic">
+          <image src="{{item.coverImgUrl}}" mode="widthFix"/>
+          <!-- <text class="author">{{item.creator.nickname}}</text> -->
+        </view>
+        <view class="content">{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<w-list list="{{list}}" title="{{title}}" author="{{author}}" bind:goBack="handleGoBack" bind:readyPlay="handleReadyPlay" wx:if="{{showList}}"/>
+
+<w-play wx:if="{{showPlay}}" result="{{list}}" index="{{index}}" bind:playGoBack="handlePlayGoBack"/>

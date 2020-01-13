@@ -36,7 +36,7 @@ Component({
    */
   pageLifetimes: {
     hide: function () {
-      this.handleClick()
+      this.handleBack()
     }
   },
 
@@ -59,7 +59,7 @@ Component({
     /**
      * 返回
      */
-    handleClick: function () {
+    handleBack: function () {
       this.triggerEvent('goBack')
     },
 

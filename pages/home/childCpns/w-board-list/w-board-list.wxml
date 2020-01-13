@@ -1,2 +1,29 @@
 <!--pages/home/childCpns/w-board-list/w-board-list.wxml-->
-<text>pages/home/childCpns/w-board-list/w-board-list.wxml</text>
+<view class="board-list">
+  <view class="top">
+    <image class="poster" src="{{boardPoster}}" mode="widthFix"/>
+    <image bind:tap="handleClick" class="back-icon" src="/assets/image/home/back.png" mode="widthFix"/>
+  </view>
+  <view class="main">
+    <view class="play-all" bind:tap="handlePlayAll">
+      <view class="play-btn">
+        <image src="/assets/image/home/play_all.png" mode="widthFix"/>
+        <text>播放全部</text>
+      </view>
+    </view>
+    <block wx:for="{{boardList}}" wx:key="index">
+      <view class="list" bind:tap="handlePlay" data-index="{{index}}">
+        <view class="blur-pic">
+          <image src="{{item.al.picUrl}}" mode="widthFix"/>
+        </view>
+        <view class="content">
+          <text class="name">{{item.name}}</text>
+          <text class="author">{{item.ar[0].name}}</text>
+        </view>
+        <view class="play-icon">
+          <image src="/assets/image/home/play.png" mode="widthFix"/>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

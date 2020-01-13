@@ -3,11 +3,14 @@
     "w-tab-control": "/components/w-tab-control/w-tab-control",
     "w-swiper": "/components/w-swiper/w-swiper",
     "w-play": "/components/w-play/w-play",
+    "w-list": "/components/w-list/w-list",
     "w-category": "./childCpns/w-category/w-category",
     "w-recommend": "./childCpns/w-recommend/w-recommend",
     "w-hotradio": "./childCpns/w-hotradio/w-hotradio",
     "w-day-recommend": "./childCpns/w-day-recommend/w-day-recommend",
-    "w-leader-board": "./childCpns/w-leader-board/w-leader-board"
+    "w-leader-board": "./childCpns/w-leader-board/w-leader-board",
+    "w-board-list": "./childCpns/w-board-list/w-board-list",
+    "w-song-list": "./childCpns/w-song-list/w-song-list"
   },
   "navigationBarTitleText": "SingleMusic"
 }

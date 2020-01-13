@@ -1,0 +1,71 @@
+/* components/w-list/w-list.wxss */
+
+.back {
+  display: flex;
+  align-items: center;
+  margin: 20rpx;
+  border: 2rpx solid #ff5777;
+  border-radius: 16rpx;
+  background-color: #ff5777;
+}
+
+.back image {
+  width: 72rpx;
+  margin-left: 10rpx;
+}
+
+.back text {
+  color: #ffffff;
+  font-family: STKaiti;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.back .title {
+  flex: 2;
+  margin: 0 20rpx;
+  font-weight: 500;
+}
+
+.back .author {
+  font-size: 24rpx;
+  margin-right: 10rpx;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  padding: 20rpx 30rpx;
+}
+
+.content {
+  flex: 2;
+  overflow: hidden;
+  margin: 0 20rpx;
+}
+
+.list-item .pic image {
+  width: 72rpx;
+  border-radius: 8rpx;
+}
+
+.list .content .name {
+  display: block;
+  padding-bottom: 8rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list .content .author {
+  font-size: 24rpx;
+  color: #888888;
+}
+
+.list .play-icon image {
+  width: 40rpx;
+}
