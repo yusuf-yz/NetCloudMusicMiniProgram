@@ -17,7 +17,7 @@
   <w-recommend list="{{recommends}}" bind:getHighQuality="handleGetHighQuality" bind:getDetail="handleGetDetail"/>
 
   <!-- 热门电台 -->
-  <w-hotradio list="{{hotradios}}"/>
+  <w-hotradio list="{{hotradios}}" bind:getRadiosPark="handleGetRadiosPark"/>
 
 </view>
 
@@ -38,10 +38,17 @@
 <!-- 歌单 -->
 <view class="song-list">
 
-  <w-song-list songs="{{songs}}" bind:songGoBack="handleSongGoBack" wx:if="{{showSongs}}"/>
+  <w-song-list songs="{{songs}}" title="热门歌单" bind:songGoBack="handleSongGoBack" wx:if="{{showSongs}}"/>
 
-  <w-song-list songs="{{parkSongs}}" bind:songGoBack="handleParkSongGoBack" wx:if="{{showSongsPark}}"/>
+  <w-song-list songs="{{parkSongs}}" title="歌单广场" bind:songGoBack="handleParkSongGoBack" wx:if="{{showSongsPark}}"/>
 
   <w-list list="{{list}}" title="{{listTitle}}" author="{{listAuthor}}" bind:goBack="handleListGoBack" bind:readyPlay="handleListPlay" wx:if="{{showList}}"/>
+
+</view>
+
+<!-- 电台 -->
+<view class="radio">
+
+  <w-radio-list radios="{{radios}}" title="热门电台" bind:radioGoBack="handleRadioGoBack" wx:if="{{showRadios}}"/>
 
 </view>

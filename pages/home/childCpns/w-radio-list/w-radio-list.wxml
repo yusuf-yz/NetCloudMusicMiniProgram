@@ -1,0 +1,16 @@
+<!--pages/home/childCpns/w-radio-list/w-radio-list.wxml-->
+<view class="radio-list">
+  <view class="back"><image bind:tap="handleBack" src="/assets/image/home/back_icon.png" mode="widthFix"/></view>
+  <view class="title">{{title}}</view>
+  <view class="main">
+    <block wx:for="{{radios}}" wx:key="index">
+      <view class="radio-list-item" data-id="{{item.id}}" bind:tap="handlePlay">
+        <view class="pic">
+          <image src="{{item.picUrl}}" mode="widthFix"/>
+          <!-- <text class="author">{{item.creator.nickname}}</text> -->
+        </view>
+        <view class="content">{{item.name}}</view>
+      </view>
+    </block>
+  </view>
+</view>

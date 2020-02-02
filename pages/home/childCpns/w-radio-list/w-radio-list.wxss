@@ -1,0 +1,56 @@
+/* pages/home/childCpns/w-radio-list/w-radio-list.wxss */
+.radio-list {
+  padding: 20rpx 30rpx;
+}
+
+.back image {
+  width: 72rpx;
+}
+
+.title {
+  font-size: 40rpx;
+  font-weight: 700;
+  line-height: 68rpx;
+  color: #000000;
+
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.radio-list-item {
+  padding: 20rpx 8rpx;
+  flex: 1;
+}
+
+.radio-list-item .pic image {
+  width: 180rpx;
+  border-radius: 8rpx;
+}
+
+/* .song-list-item .pic .author {
+  display: inline-block;
+  font-size: 24rpx;
+  color: #ffffff;
+  position: relative;
+  bottom: 60rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} */
+
+.radio-list-item .content {
+  font-size: 24rpx;
+  width: 180rpx;
+  text-align: left;
+  margin: 0 auto;
+  /* display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

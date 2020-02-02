@@ -37,6 +37,15 @@ export function getHotRadio (limit) {
 }
 
 /**
+ * 推荐电台
+ */
+export function getRecommendRadio () {
+  return request({
+    url: '/dj/recommend'
+  })
+}
+
+/**
  * 每日推荐
  */
 export function getDayRecommend () {

@@ -10,7 +10,8 @@
     "w-day-recommend": "./childCpns/w-day-recommend/w-day-recommend",
     "w-leader-board": "./childCpns/w-leader-board/w-leader-board",
     "w-board-list": "./childCpns/w-board-list/w-board-list",
-    "w-song-list": "./childCpns/w-song-list/w-song-list"
+    "w-song-list": "./childCpns/w-song-list/w-song-list",
+    "w-radio-list": "./childCpns/w-radio-list/w-radio-list"
   },
   "navigationBarTitleText": "SingleMusic"
 }

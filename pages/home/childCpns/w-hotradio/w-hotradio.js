@@ -21,6 +21,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    /**
+     * 电台广场
+     */
+    handleClick: function () {
+      this.triggerEvent('getRadiosPark')
+    },
   }
 })

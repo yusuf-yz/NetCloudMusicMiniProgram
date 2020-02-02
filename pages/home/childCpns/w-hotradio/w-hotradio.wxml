@@ -2,7 +2,7 @@
 <view class="hotradio">
   <view class="top">
     <view class="title">热门电台</view>
-    <view class="btn"><button size="mini">更多电台</button></view>
+    <view class="btn"><button bind:tap="handleClick" size="mini">更多电台</button></view>
   </view>
   <block wx:for="{{list}}" wx:key="index">
     <view class="hotradio-item">

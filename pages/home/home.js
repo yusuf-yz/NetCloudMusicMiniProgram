@@ -8,6 +8,7 @@ import { getTop } from '../../service/home.js'
 import { getRadioTop } from '../../service/home.js'
 import { getHighQualityList } from '../../service/home.js'
 import { getPlayListDetail } from '../../service/home.js'
+import { getRecommendRadio } from '../../service/home.js'
 
 // 注册一个页面
 Page({
@@ -33,6 +34,7 @@ Page({
     listTitle: '', // 歌单列表标题 
     listAuthor: '', // 歌单列表作者
     parkSongs: {}, // 歌单广场
+    radios: {}, // 电台广场
     newSongBoards: {}, // 新歌榜
     hotSongBoards: {}, // 热歌榜
     originalBoards: {}, // 原创榜
@@ -48,6 +50,7 @@ Page({
     showSongs: false, // 歌单组件
     showSongsPark: false, // 歌单广场组件
     showList: false, // 歌单列表组件
+    showRadios: false, // 电台广场组件
   },
 
   /**
@@ -170,6 +173,22 @@ Page({
   },
 
   /**
+   * 推荐电台
+   */
+  _getRecommendRadio: function () {
+    getRecommendRadio().then(res => {
+      console.log(res)
+      if (res.data.code === 200) {
+        const radios = res.data.djRadios
+
+        this.setData({
+          radios: radios.length > 9 ? radios.slice(0, 9) : radios
+        })
+      }
+    })
+  },
+
+  /**
    * 获取推荐歌单
    */
   _getRecommend: function(limit) {
@@ -277,7 +296,11 @@ Page({
         })
         break
       case 3:
-        this._getRadioTop(30, 0)
+        this._getRecommendRadio()
+        this.setData({
+          isShow: false,
+          showRadios: true
+        })
         break
       default:
         break
@@ -392,6 +415,27 @@ Page({
     this.setData({
       isShow: true,
       showSongsPark: false
+    })
+  },
+
+  /**
+   * 电台广场
+   */
+  handleGetRadiosPark: function () {
+    this._getRecommendRadio()
+    this.setData({
+      isShow: false,
+      showRadios: true
+    })
+  },
+
+  /**
+   * 电台广场返回
+   */
+  handleRadioGoBack: function () {
+    this.setData({
+      isShow: true,
+      showRadios: false
     })
   },
 

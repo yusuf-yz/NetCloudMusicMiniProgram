@@ -1,7 +1,7 @@
 <!--pages/home/childCpns/w-song-list/w-song-list.wxml-->
 <view class="song-list" wx:if="{{isShow}}">
   <view class="back"><image bind:tap="handleBack" src="/assets/image/home/back_icon.png" mode="widthFix"/></view>
-  <view class="title">热门歌单</view>
+  <view class="title">{{title}}</view>
   <view class="main">
     <block wx:for="{{songs}}" wx:key="index">
       <view class="song-list-item" data-id="{{item.id}}" bind:tap="handleGetDetail">
